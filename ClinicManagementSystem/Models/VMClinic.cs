@@ -13,10 +13,11 @@ namespace ClinicManagementSystem.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public string RegNo { get; set; }
-        [DataType(DataType.Time)]
+        [DataType(DataType.DateTime)]
         public DateTime OpenTime { get; set; }
-       
-        [DataType(DataType.Time)]
+         
+        [DataType(DataType.DateTime)] 
+      
         public DateTime CloseTime { get; set; }
         public string Photo { get; set; }
         public int CreatedBy { get; set; }
