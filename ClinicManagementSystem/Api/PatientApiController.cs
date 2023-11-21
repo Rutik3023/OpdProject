@@ -12,12 +12,12 @@ namespace ClinicManagementSystem.Api
 {
     public class PatientApiController : Controller
     {
-        // GET: PatientApi
+        // GET: Clinic
         IPatient c;
         Mapper mp = null;
         public PatientApiController(IPatient _c)
         {
-            var config = new MapperConfiguration(u => u.CreateMap<VMPatient, tblPatient>().ReverseMap());
+            var config = new MapperConfiguration(u => u.CreateMap<VMPatient,tblPatient>().ReverseMap());
             mp = new Mapper(config);
 
             c = _c;
@@ -64,36 +64,19 @@ namespace ClinicManagementSystem.Api
         [HttpPost]
         public JsonResult Save(VMPatient obj)
         {
+            //  ModelState.Clear();
             Reports rp = new Reports();
-            obj.Photo = rp.Path;
-
-
-
 
 
             tblPatient list = mp.Map<tblPatient>(obj);
+
+
             var res = c.Save(list);
 
 
 
             rp.Code = 0;
             rp.Message = res;
-            //if (ModelState.IsValid)
-            //{
-
-
-
-
-
-
-
-            //}
-            //else
-            //{
-            //    rp.Code = -1;
-            //    rp.Message = CommonRepo.GetAdditionValidaitonIssues(ModelState);
-            //}
-
 
 
 
@@ -101,39 +84,6 @@ namespace ClinicManagementSystem.Api
 
             return Json(rp, JsonRequestBehavior.AllowGet);
         }
-
-        [HttpPost]
-        public void Upload()
-        {
-            Reports rp = new Reports();
-            if (Request.Files.Count != 0)
-            {
-
-                for (int i = 0; i < Request.Files.Count; i++)
-                {
-                    var file = Request.Files[i];
-
-                    var fileName = Path.GetFileName(file.FileName);
-                    rp.Path = file.FileName;
-                    var path = Path.Combine(Server.MapPath("~/DoctorPhoto/"), fileName);
-                    file.SaveAs(path);
-
-                    //string path = Server.MapPath("~/DoctorPhoto/");
-                    //file.SaveAs(path + file.FileName);
-
-
-
-
-
-
-                }
-
-            }
-
-        }
-
-
-
 
         public JsonResult Delete(int id)
         {
@@ -164,5 +114,7 @@ namespace ClinicManagementSystem.Api
             return Json(rp, JsonRequestBehavior.AllowGet);
 
         }
+
+
     }
 }

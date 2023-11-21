@@ -30,8 +30,8 @@ namespace ClinicManagementSystem.Servises
                     List.Mobileno = obj.Mobileno;
                     List.Address = obj.Address;
                     List.Adharno = obj.Adharno;
-                    List.Createdon = obj.Createdon;
-                    List.Createdby = obj.Createdby;
+                    List.Createdon = DateTime.Now;
+                    List.Createdby = 1;
                     List.bloodgroupid = obj.bloodgroupid;
                     List.Gender = obj.Gender;
 
@@ -50,8 +50,8 @@ namespace ClinicManagementSystem.Servises
                     List.Mobileno = obj.Mobileno;
                     List.Address = obj.Address;
                     List.Adharno = obj.Adharno;
-                    List.Createdon = obj.Createdon;
-                    List.Createdby = obj.Createdby;
+                    List.Createdon = DateTime.Now;
+                    List.Createdby = 1;
                     List.bloodgroupid = obj.bloodgroupid;
                     List.Gender = obj.Gender;
 
@@ -119,7 +119,7 @@ namespace ClinicManagementSystem.Servises
 
         public dynamic GetAllPage(int pageno)
         {
-            dynamic obj = db.tblAppointments.OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
+            dynamic obj = db.tblPatients.OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
 
             return obj;
         }

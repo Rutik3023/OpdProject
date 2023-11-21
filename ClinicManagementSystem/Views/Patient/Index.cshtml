@@ -17,18 +17,64 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#PatientModal").hide();
         });
-    });
 
+        $("#save").click(function () {
+
+            //validation....
+            //var gender = "";
+            //if ($("#RodMale").prop("checked")) {
+            //    gender = "M";
+
+            //}
+            //else {
+
+            //    gender = "F";
+
+            //}
+            // save to db
+
+            var obj = {
+                "Id": $("#Id").val(),
+
+                "Name": $("#Name").val(),
+                "Address": $("#Address").val(),
+                "MobileNo": $("#Mobile").val(),
+                "Email": $("#Email").val(),
+                "Gender": $("#Gender").val(),
+
+                "AdhaarNo": $("#AdhaarNo").val(),
+                "BloodGroupId": $("#BloodGroupId").val(),
+
+                "Photo": $("#Photo").val()
+            }
+            //  console.log(JSON.stringify(obj));
+            $.ajax({
+                "url": "/PatientApi/Save",
+                "method": "post",
+                "contentType": "application/json",
+                "data": JSON.stringify(obj),
+
+                success: function (data) {
+
+                    alert(data.Message);
+                    Loaddata(0);
+                    $("#PatientModal").hide();
+
+                },
+                error: function (err) { console.log(err); }
+            });
+        });
+    });
     function Loaddata(pagno) {
-       
+
         $.ajax({
 
-            "url":"/PatientApi/GetAllC?pagno="+ pagno,
+            "url": "/PatientApi/GetAllC?pagno=" + pagno,
             "method": "get",
             success: function (Data) {
 
 
-                 console.log(Data);
+                //console.log(Data);
                 $("#loadPatient").empty();
                 $.each(Data.Message, function (index, item) {
                     var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
@@ -37,11 +83,14 @@
                     if (previous == -1) {
                         previous = 0;
                     }
-                    // console.log(Data.Message);
+                   
+                    console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#loadPatient").append("<tr><td><div class='btn-group-sm' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn - sm btn - outline - danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Email</td><td>Mobile No</td><td>Address</td><td>Adhaar No.</td><td>Blood Group</td><td>Gender</td><td>Created On</td></tr>");
-
+                    $("#loadPatient").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button'class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button'onclick='Edit(" + item.Id + ")' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button'onclick='Delete(" + item.Id + ")'  class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.MobileNo + "</td><td>" + item.Address + "</td><td>" + item.AdhaarNo + "</td><td>" + item.BloodGroupId + "</td><td>" + item.Gender + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                    /* $("#loadPatient").append("<tr><td> <div class='btn-group-sm' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Email</td><td>Mobile No</td><td>Address</td><td>Adhaar No.</td><td>Blood Group</td> <td>Gender</td><td>Created On</td></tr>");*/
                 })
+
+
             },
             error: function (error) {
 
@@ -51,11 +100,73 @@
 
 
         });
-
-
     }
+        function Delete(id) {
+            if (confirm("Are you sure?")) {
+
+                $.ajax({
+                    "url": "/PatientApi/Delete?id=" + id,
+                    "method": "get",
+                    success: function (rep) {
+
+                        if (rep.Code == 0) {
+                            alert(rep.Message);
+                            Loaddata(0);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
 
 
+        }
+
+        function Edit(id) {
+
+            $.ajax({
+                "url": "/PatientApi/FindByid?id=" + id,
+                "method": "get",
+                success: function (rep) {
+
+                    if (rep.Code == 0) {
+
+                        var obj = rep.Message;
+
+                        console.log(obj);
+
+                        $("#Id").val(obj.Id);
+                        $("#AdhaarNo").val(obj.AdhaarNo);
+                        $("#Name").val(obj.Name);
+                        $("#Address").val(obj.Address);
+                        $("#MobileNo").val(obj.MobileNo);
+                        $("#Email").val(obj.Email);
+                        ///*  $("#Gender").val(obj.Gender);*/
+                        //if (obj.Gender == "M") {
+                        //    $("#RdoMale").prop("checked", true);
+                        //}
+                        //else {
+
+                        //    $("#RdoFemale").prop("checked", true);
+                        //}
+                        $("#BloodGroupId").val(obj.BloodGroupId);
+                       
+                        $("#Photo").val(obj.Photo);
+                        $("#Gender").val(obj.Gender);
+                       
+
+                        $("#PatientModal").show();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        }
+
+    
 
 
 
@@ -82,6 +193,7 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-12">
+                                        @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -169,7 +281,7 @@
 
                         <div class="form-group mt-3">
                             <div class="col-md-offset-2 col-md-12 text-end">
-                                <input type="submit" value="Create" class="btn btn-success" />
+                                <input type="button" id="save" value="Save" class="btn btn-success" />
                             </div>
                         </div>
                     </div>
