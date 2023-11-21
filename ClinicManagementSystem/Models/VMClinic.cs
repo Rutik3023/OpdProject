@@ -13,11 +13,13 @@ namespace ClinicManagementSystem.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public string RegNo { get; set; }
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+       
         public DateTime OpenTime { get; set; }
          
-        [DataType(DataType.DateTime)] 
-      
+       
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+
         public DateTime CloseTime { get; set; }
         public string Photo { get; set; }
         public int CreatedBy { get; set; }
