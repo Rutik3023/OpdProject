@@ -8,6 +8,8 @@
 <script>
 
     $(document).ready(function () {
+        Loaddata(0);
+
         $("#OpenModal").click(function () {
             $("#PatientModal").show();
         });
@@ -16,6 +18,48 @@
             $("#PatientModal").hide();
         });
     });
+
+    function Loaddata(pagno) {
+       
+        $.ajax({
+
+            "url":"/PatientApi/GetAllC?pagno="+ pagno,
+            "method": "get",
+            success: function (Data) {
+
+
+                 console.log(Data);
+                $("#loadPatient").empty();
+                $.each(Data.Message, function (index, item) {
+                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    previous = Data.pageno - 1;
+                    Next = Data.pageno + 1;
+                    if (previous == -1) {
+                        previous = 0;
+                    }
+                    // console.log(Data.Message);
+                    var next = Data.pageno + 1;
+                    $("#loadPatient").append("<tr><td><div class='btn-group-sm' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn - sm btn - outline - danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Email</td><td>Mobile No</td><td>Address</td><td>Adhaar No.</td><td>Blood Group</td><td>Gender</td><td>Created On</td></tr>");
+
+                })
+            },
+            error: function (error) {
+
+                console.log(error);
+
+            }
+
+
+        });
+
+
+    }
+
+
+
+
+
+
 
 </script>
 
@@ -169,8 +213,8 @@
                     <th>Created On</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="loadPatient">
+                @*<tr>
                     <td>
                         <div class="btn-group-sm" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-edit m-0'></i>Add Casepaper</button>
@@ -187,8 +231,35 @@
                     <td>Blood Group</td>
                     <td>Gender</td>
                     <td>Created On</td>
-                </tr>
+                </tr>*@
             </tbody>
         </table>
     </div>
+</div>
+<div class="row">
+    <div class="col-12 text-right">
+        @{
+
+
+
+
+
+            <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
+            int totaln = (int)TempData.Peek("count");
+            for (int i = 0; i <= totaln / 8; i++)
+            {
+                int total = i + 1;
+                <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+            }
+            <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
+
+        }
+
+
+    </div>
+
+
+
+
 </div>
