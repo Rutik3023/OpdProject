@@ -1,0 +1,67 @@
+﻿@model ClinicManagementSystem.Models.Login
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .loginPage {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(../../Images/login-02.png);
+        background-position: 20px;
+        background-repeat: no-repeat;
+    }
+
+    .loginform {
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+</style>
+
+<div class="loginPage">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal border p-4 rounded-3 ms-5 loginform">
+            <h4>Login</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoginName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.LoginName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LoginName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12 text-center">
+                    @if (@ViewBag.error!=null)
+                    {
+                        <p class="alert alert-danger">@ViewBag.error</p>
+                    }
+
+                    <input type="submit" value="Login" class="btn text-white mt-3" style="background: #4E57CD;" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Fee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="float" Nullable="false" />
+    <Property Name="Prid" Type="int" />
+    <Property Name="Tritment" Type="nvarchar(max)" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Pid" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobileno" Type="nchar" MaxLength="12" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Careatedon" Type="datetime" />
+    <Property Name="Role" Type="int" />
+  </EntityType>
+  <EntityType Name="tblAppointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cid" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" />
+    <Property Name="Stastus" Type="nvarchar(max)" />
+    <Property Name="DrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tblBloodgroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCasePaper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pid" Type="int" />
+    <Property Name="Createdon" Type="datetime" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="Height" Type="nchar" MaxLength="10" />
+    <Property Name="Wight" Type="nchar" MaxLength="10" />
+    <Property Name="BP" Type="nchar" MaxLength="10" />
+    <Property Name="CasePaperfee" Type="float" />
+    <Property Name="HealthIssue" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblClinic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="RegNo" Type="nvarchar(max)" />
+    <Property Name="OpenTime" Type="datetime" />
+    <Property Name="CloseTime" Type="datetime" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDoctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Mobile" Type="nvarchar(max)" />
+    <Property Name="Qulification" Type="nvarchar(max)" />
+    <Property Name="Specilization" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+    <Property Name="Role" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ClinicId" Type="int" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblGst">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Value" Type="int" />
+  </EntityType>
+  <EntityType Name="tblmaterial">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="price" Type="float" />
+    <Property Name="Totalprice" Type="float" />
+    <Property Name="Createdon" Type="datetime" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="Gstid" Type="int" />
+  </EntityType>
+  <EntityType Name="tblMedicine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="MContent" Type="varchar(max)" />
+    <Property Name="Company" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblPatient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Emailid" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobileno" Type="nchar" MaxLength="15" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Adharno" Type="nchar" MaxLength="13" />
+    <Property Name="Createdon" Type="datetime" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="bloodgroupid" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tblPatientfeeDetails">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="pmid" Type="int" />
+    <Property Name="Feeid" Type="int" />
+    <Property Name="feeprice" Type="float" />
+  </EntityType>
+  <EntityType Name="tblPayment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblprescripationMedicineDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prid" Type="int" />
+    <Property Name="medicineid" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="MDose" Type="bit" />
+    <Property Name="AfDose" Type="bit" />
+    <Property Name="NDose" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblPrescriptionMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aid" Type="int" />
+    <Property Name="Naration" Type="nvarchar(max)" />
+    <Property Name="Createdon" Type="datetime" />
+    <Property Name="Symtam" Type="varchar(max)" />
+    <Property Name="Disiese" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblStaff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Role" Type="int" />
+    <Property Name="Mobile" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Fee_tblPatient">
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
+    <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fee">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAdmin_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAdmin">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppointment_tblCasePaper">
+    <End Role="tblCasePaper" Type="Self.tblCasePaper" Multiplicity="0..1" />
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCasePaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAppointment">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppointment_tblDoctor">
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAppointment">
+        <PropertyRef Name="DrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCasePaper_tblPatient">
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
+    <End Role="tblCasePaper" Type="Self.tblCasePaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblCasePaper">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblClinic_tblAdmin">
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="1" />
+    <End Role="tblClinic" Type="Self.tblClinic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblClinic">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblAdmin">
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblClinic">
+    <End Role="tblClinic" Type="Self.tblClinic" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClinic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="ClinicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFee_tblPrescriptionMaster">
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="0..1" />
+    <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPrescriptionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fee">
+        <PropertyRef Name="Prid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblmaterial_tblGst">
+    <End Role="tblGst" Type="Self.tblGst" Multiplicity="0..1" />
+    <End Role="tblmaterial" Type="Self.tblmaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGst">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblmaterial">
+        <PropertyRef Name="Gstid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblparentmedicineDetails_tblmedicine">
+    <End Role="tblMedicine" Type="Self.tblMedicine" Multiplicity="0..1" />
+    <End Role="tblprescripationMedicineDetails" Type="Self.tblprescripationMedicineDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMedicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblprescripationMedicineDetails">
+        <PropertyRef Name="medicineid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPatient_tblStaff">
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="0..1" />
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPatient">
+        <PropertyRef Name="Createdby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPatientMedicineDetails_tblPrescription">
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="0..1" />
+    <End Role="tblprescripationMedicineDetails" Type="Self.tblprescripationMedicineDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPrescriptionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblprescripationMedicineDetails">
+        <PropertyRef Name="prid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpeshant_tblBloodgroup">
+    <End Role="tblBloodgroup" Type="Self.tblBloodgroup" Multiplicity="0..1" />
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBloodgroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPatient">
+        <PropertyRef Name="bloodgroupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPrescription_tblAppointment">
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="0..1" />
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppointment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPrescriptionMaster">
+        <PropertyRef Name="Aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaff_tblDoctor">
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalDBModelStoreContainer">
+    <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppointment" EntityType="Self.tblAppointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBloodgroup" EntityType="Self.tblBloodgroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCasePaper" EntityType="Self.tblCasePaper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblClinic" EntityType="Self.tblClinic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDoctor" EntityType="Self.tblDoctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGst" EntityType="Self.tblGst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblmaterial" EntityType="Self.tblmaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMedicine" EntityType="Self.tblMedicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPatient" EntityType="Self.tblPatient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPatientfeeDetails" EntityType="Self.tblPatientfeeDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPayment" EntityType="Self.tblPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblprescripationMedicineDetails" EntityType="Self.tblprescripationMedicineDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPrescriptionMaster" EntityType="Self.tblPrescriptionMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRole" EntityType="Self.tblRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStaff" EntityType="Self.tblStaff" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Fee_tblPatient" Association="Self.FK_Fee_tblPatient">
+      <End Role="tblPatient" EntitySet="tblPatient" />
+      <End Role="Fee" EntitySet="Fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAdmin_tblRole" Association="Self.FK_tblAdmin_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
+      <End Role="tblAdmin" EntitySet="tblAdmin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppointment_tblCasePaper" Association="Self.FK_tblAppointment_tblCasePaper">
+      <End Role="tblCasePaper" EntitySet="tblCasePaper" />
+      <End Role="tblAppointment" EntitySet="tblAppointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppointment_tblDoctor" Association="Self.FK_tblAppointment_tblDoctor">
+      <End Role="tblDoctor" EntitySet="tblDoctor" />
+      <End Role="tblAppointment" EntitySet="tblAppointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCasePaper_tblPatient" Association="Self.FK_tblCasePaper_tblPatient">
+      <End Role="tblPatient" EntitySet="tblPatient" />
+      <End Role="tblCasePaper" EntitySet="tblCasePaper" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblClinic_tblAdmin" Association="Self.FK_tblClinic_tblAdmin">
+      <End Role="tblAdmin" EntitySet="tblAdmin" />
+      <End Role="tblClinic" EntitySet="tblClinic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblAdmin" Association="Self.FK_tblDoctor_tblAdmin">
+      <End Role="tblAdmin" EntitySet="tblAdmin" />
+      <End Role="tblDoctor" EntitySet="tblDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblClinic" Association="Self.FK_tblDoctor_tblClinic">
+      <End Role="tblClinic" EntitySet="tblClinic" />
+      <End Role="tblDoctor" EntitySet="tblDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblRole" Association="Self.FK_tblDoctor_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
+      <End Role="tblDoctor" EntitySet="tblDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFee_tblPrescriptionMaster" Association="Self.FK_tblFee_tblPrescriptionMaster">
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMaster" />
+      <End Role="Fee" EntitySet="Fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblmaterial_tblGst" Association="Self.FK_tblmaterial_tblGst">
+      <End Role="tblGst" EntitySet="tblGst" />
+      <End Role="tblmaterial" EntitySet="tblmaterial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblparentmedicineDetails_tblmedicine" Association="Self.FK_tblparentmedicineDetails_tblmedicine">
+      <End Role="tblMedicine" EntitySet="tblMedicine" />
+      <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPatient_tblStaff" Association="Self.FK_tblPatient_tblStaff">
+      <End Role="tblStaff" EntitySet="tblStaff" />
+      <End Role="tblPatient" EntitySet="tblPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPatientMedicineDetails_tblPrescription" Association="Self.FK_tblPatientMedicineDetails_tblPrescription">
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMaster" />
+      <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpeshant_tblBloodgroup" Association="Self.FK_tblpeshant_tblBloodgroup">
+      <End Role="tblBloodgroup" EntitySet="tblBloodgroup" />
+      <End Role="tblPatient" EntitySet="tblPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPrescription_tblAppointment" Association="Self.FK_tblPrescription_tblAppointment">
+      <End Role="tblAppointment" EntitySet="tblAppointment" />
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblDoctor" Association="Self.FK_tblStaff_tblDoctor">
+      <End Role="tblDoctor" EntitySet="tblDoctor" />
+      <End Role="tblStaff" EntitySet="tblStaff" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

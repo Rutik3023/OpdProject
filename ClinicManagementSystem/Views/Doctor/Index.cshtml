@@ -1,0 +1,493 @@
+﻿@model ClinicManagementSystem.Models.VMDoctor
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script>
+
+    $(document).ready(function () {
+        Loaddata(0);
+        $("#OpenModal").click(function () {
+            $("#DoctorModal").show();
+        });
+
+        $("[data-bs-dismiss='modal']").click(function () {
+            $("#DoctorModal").hide();
+        });
+        $("#upload").change(function () {
+            
+                var formData = new FormData();
+            var totalFiles = document.getElementById("upload").files.length;
+                for (var i = 0; i < totalFiles; i++) {
+                    var file = document.getElementById("upload").files[i];
+                    formData.append("upload", file);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: '/DoctorApi/Upload',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        alert('succes!!');
+                    },
+                    error: function(error) {
+                        alert("errror");
+                    }
+                //}).done(function () {
+                //    alert('success');
+                //}.fail(function (xhr, status, errorThrown) {
+                //    alert('fail');
+                //};
+            });
+         });
+
+
+
+
+
+
+
+        $("#Save").click(function () {
+
+            //validation....
+            var gender = "";
+            if ($("#RodMale").prop("checked")) {
+                gender = "M";
+
+            }
+            else {
+
+                gender = "F";
+
+            }
+            // save to db
+
+            var obj = {
+                "Id": $("#Id").val(),
+                "ClinicId": $("#ClinicId").val(),
+                "Name": $("#Name").val(),
+                "Address": $("#Address").val(),
+                "Mobile": $("#Mobile").val(),
+                "Email": $("#Email").val(),
+                "Gender": gender,
+
+                "Specilization": $("#Specilization").val(),
+                "Qulification": $("#Qulification").val(),
+                "Role": $("#Role").val(),
+                "Photo": $("#Photo").val(),
+                "UserName": $("#UserName").val(),
+                "Password": $("#Password").val()
+            };
+            //  console.log(JSON.stringify(obj));
+            $.ajax({
+                "url": "/DoctorApi/Save",
+                "method": "post",
+                "contentType": "application/json",
+                "data": JSON.stringify(obj),
+
+                success: function (data) {
+
+                    alert(data.Message);
+                    Loaddata(0);
+                    $("#DoctorModal").hide();
+
+                },
+                error: function (err) { console.log(err); }
+            });
+
+
+        });
+
+        $("#txtSearch").keyup(function () {
+            $.ajax(
+                {
+                    "url": "/DoctorApi/GetAll?key=" + $("#txtSearch").val(),
+                    "method": "get",
+                    success: function (data) {
+                        // console.log(data);
+                        if (data.Code == 0) {
+                            $("#Doctorload").empty();
+                            $.each(data.Message, function (index, item) {
+                                var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                                $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Role + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                            });
+                        }
+                    },
+                    error: function (message) {
+                        console.log(message);
+                    }
+                }
+            );
+        });
+
+
+
+
+
+
+
+
+    });
+
+    function Delete(id) {
+        if (confirm("Are you sure?")) {
+
+            $.ajax({
+                "url": "/DoctorApi/Delete?id=" + id,
+                "method": "get",
+                success: function (rep) {
+
+                    if (rep.Code == 0) {
+                        alert(rep.Message);
+                        Loaddata(0);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+
+    }
+
+    function Edit(id) {
+
+        $.ajax({
+            "url": "/DoctorApi/FindByid?id=" + id,
+            "method": "get",
+            success: function (rep) {
+
+                if (rep.Code == 0) {
+
+                    var obj = rep.Message;
+
+                    console.log(obj);
+
+                    $("#Id").val(obj.Id);
+                    $("#ClinicId").val(obj.ClinicId);
+                    $("#Name").val(obj.Name);
+                    $("#Address").val(obj.Address);
+                    $("#Mobile").val(obj.Mobile);
+                    $("#Email").val(obj.Email);
+                    /*  $("#Gender").val(obj.Gender);*/
+                    if (obj.Gender == "M") {
+                        $("#RdoMale").prop("checked", true);
+                    }
+                    else {
+
+                        $("#RdoFemale").prop("checked", true);
+                    }
+                    $("#Specilization").val(obj.Specilization);
+                    $("#Qulification").val(obj.Qulification);
+                    $("#Role").val(obj.Role);
+                    $("#Photo").val(obj.Photo);
+                    $("#UserName").val(obj.UserName);
+                    $("#Password").val(obj.Password);
+
+                    $("#DoctorModal").show();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+
+
+
+
+
+
+    function Loaddata(pagno) {
+
+        $.ajax({
+
+            "url": "/DoctorApi/GetAllC?pagno=" + pagno,
+            "method": "get",
+            success: function (Data) {
+
+
+                // console.log(Data);
+                $("#Doctorload").empty();
+                $.each(Data.Message, function (index, item) {
+                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    previous = Data.pageno - 1;
+                    Next = Data.pageno + 1;
+                    if (previous == -1) {
+                        previous = 0;
+                    }
+                    // console.log(Data.Message);
+                    var next = Data.pageno + 1;
+                    $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Role + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+
+                })
+            },
+            error: function (error) {
+
+                console.log(error);
+
+            }
+
+
+        });
+
+
+    }
+
+</script>
+
+
+
+
+
+<div class="modal" id="DoctorModal" tabindex="-1" style="background: #00000014;">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width:70vw">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Doctor Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ClinicId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.DropDownListFor(model => model.ClinicId, (IEnumerable<SelectListItem>)ViewBag.Clinic, new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.ClinicId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control mb-3", @rows = "3" })
+                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Qulification, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Qulification, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Qulification, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Specilization, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Specilization, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Specilization, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.DropDownListFor(model => model.Role, (IEnumerable<SelectListItem>)ViewBag.Role, new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2 mb-2" })
+                                            <div class="col-md-12">
+                                                @*@Html.RadioButtonFor(model => model.Gender,"M", new { htmlAttributes = new { @class = "form-radio me-3", @Name = "rdoMale" } }) Male
+                                                    @Html.RadioButtonFor(model => model.Gender,"F", new { htmlAttributes = new { @class = "form-radio me-3", @Name = "rdoFemale" } }) Female*@
+                                                <input type="radio" id="RdoMale" name="Gender" class="form-radio" value="M" />Male
+                                                <input type="radio" id="RdoFemale" name="Gender" class="form-radio" value="F" />Female
+                                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                <input type="file" name="upload" id="upload" multiple="multiple" class="form-control" />
+                                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12 text-end">
+                                <input type="button" id="Save" value="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div class="DoctorPage px-4 py-3 border-top">
+    <div class="row">
+        <div class="col-10">
+            <div class="input-group">
+                <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
+                <input type="text" id="txtSearch" class="form-control" placeholder="Search doctor by  name and email....">
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-sm d-flex align-items-center text-white" style="background: #00acb1;" id="OpenModal"><i class='bx bx-plus fs-5'></i> Add New Doctor</button>
+        </div>
+    </div>
+    <hr />
+    <div class="AllDoctorData overflow-auto mt-2 bg-secondary p-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Doctor Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Mobile No</th>
+                    <th>Qualification</th>
+                    <th>Specilization</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>CreatedOn</th>
+                </tr>
+            </thead>
+            <tbody id="Doctorload">
+                @*<tr>
+                        <td>
+                            <div class="btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-show m-0'></i></button>
+                                <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
+                                <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
+                            </div>
+                        </td>
+                        <td>Id</td>
+                        <td>Doctor Name</td>
+                        <td>Email</td>
+                        <td>Address</td>
+                        <td>Mobile No</td>
+                        <td>Qualification</td>
+                        <td>Specilization</td>
+                        <td>Gender</td>
+                        <td>Role</td>
+                        <td>Username</td>
+                        <td>Password</td>
+                        <td>CreatedOn</td>
+                    </tr>*@
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-12 text-right">
+            @{
+
+
+
+
+
+                <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
+                int totaln = (int)TempData.Peek("count");
+                for (int i = 0; i <= totaln / 8; i++)
+                {
+                    int total = i + 1;
+                    <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+                }
+                <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
+
+            }
+
+
+        </div>
+
+
+
+
+    </div>

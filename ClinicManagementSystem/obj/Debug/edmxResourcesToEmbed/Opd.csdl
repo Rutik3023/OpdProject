@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Fee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Double" Nullable="false" />
+    <Property Name="Prid" Type="Int32" />
+    <Property Name="Tritment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Pid" Type="Int32" />
+    <NavigationProperty Name="tblPatient" Relationship="Self.FK_Fee_tblPatient" FromRole="Fee" ToRole="tblPatient" />
+    <NavigationProperty Name="tblPrescriptionMaster" Relationship="Self.FK_tblFee_tblPrescriptionMaster" FromRole="Fee" ToRole="tblPrescriptionMaster" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobileno" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Careatedon" Type="DateTime" Precision="3" />
+    <Property Name="Role" Type="Int32" />
+    <NavigationProperty Name="tblRole" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblAdmin" ToRole="tblRole" />
+    <NavigationProperty Name="tblClinics" Relationship="Self.FK_tblClinic_tblAdmin" FromRole="tblAdmin" ToRole="tblClinic" />
+    <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblAdmin" FromRole="tblAdmin" ToRole="tblDoctor" />
+  </EntityType>
+  <EntityType Name="tblAppointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cid" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="7" />
+    <Property Name="Stastus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DrId" Type="Int32" />
+    <NavigationProperty Name="tblCasePaper" Relationship="Self.FK_tblAppointment_tblCasePaper" FromRole="tblAppointment" ToRole="tblCasePaper" />
+    <NavigationProperty Name="tblDoctor" Relationship="Self.FK_tblAppointment_tblDoctor" FromRole="tblAppointment" ToRole="tblDoctor" />
+    <NavigationProperty Name="tblPrescriptionMasters" Relationship="Self.FK_tblPrescription_tblAppointment" FromRole="tblAppointment" ToRole="tblPrescriptionMaster" />
+  </EntityType>
+  <EntityType Name="tblBloodgroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPatients" Relationship="Self.FK_tblpeshant_tblBloodgroup" FromRole="tblBloodgroup" ToRole="tblPatient" />
+  </EntityType>
+  <EntityType Name="tblCasePaper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pid" Type="Int32" />
+    <Property Name="Createdon" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="Height" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Wight" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CasePaperfee" Type="Double" />
+    <Property Name="HealthIssue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblAppointments" Relationship="Self.FK_tblAppointment_tblCasePaper" FromRole="tblCasePaper" ToRole="tblAppointment" />
+    <NavigationProperty Name="tblPatient" Relationship="Self.FK_tblCasePaper_tblPatient" FromRole="tblCasePaper" ToRole="tblPatient" />
+  </EntityType>
+  <EntityType Name="tblClinic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RegNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OpenTime" Type="DateTime" Precision="3" />
+    <Property Name="CloseTime" Type="DateTime" Precision="3" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblClinic_tblAdmin" FromRole="tblClinic" ToRole="tblAdmin" />
+    <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblClinic" FromRole="tblClinic" ToRole="tblDoctor" />
+  </EntityType>
+  <EntityType Name="tblDoctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Qulification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Specilization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ClinicId" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAdmin" Relationship="Self.FK_tblDoctor_tblAdmin" FromRole="tblDoctor" ToRole="tblAdmin" />
+    <NavigationProperty Name="tblAppointments" Relationship="Self.FK_tblAppointment_tblDoctor" FromRole="tblDoctor" ToRole="tblAppointment" />
+    <NavigationProperty Name="tblClinic" Relationship="Self.FK_tblDoctor_tblClinic" FromRole="tblDoctor" ToRole="tblClinic" />
+    <NavigationProperty Name="tblRole" Relationship="Self.FK_tblDoctor_tblRole" FromRole="tblDoctor" ToRole="tblRole" />
+    <NavigationProperty Name="tblStaffs" Relationship="Self.FK_tblStaff_tblDoctor" FromRole="tblDoctor" ToRole="tblStaff" />
+  </EntityType>
+  <EntityType Name="tblGst">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Int32" />
+    <NavigationProperty Name="tblmaterials" Relationship="Self.FK_tblmaterial_tblGst" FromRole="tblGst" ToRole="tblmaterial" />
+  </EntityType>
+  <EntityType Name="tblmaterial">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="price" Type="Double" />
+    <Property Name="Totalprice" Type="Double" />
+    <Property Name="Createdon" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="Gstid" Type="Int32" />
+    <NavigationProperty Name="tblGst" Relationship="Self.FK_tblmaterial_tblGst" FromRole="tblmaterial" ToRole="tblGst" />
+  </EntityType>
+  <EntityType Name="tblMedicine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblprescripationMedicineDetails" Relationship="Self.FK_tblparentmedicineDetails_tblmedicine" FromRole="tblMedicine" ToRole="tblprescripationMedicineDetails" />
+  </EntityType>
+  <EntityType Name="tblPatient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobileno" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adharno" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+    <Property Name="Createdon" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="bloodgroupid" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Fees" Relationship="Self.FK_Fee_tblPatient" FromRole="tblPatient" ToRole="Fee" />
+    <NavigationProperty Name="tblBloodgroup" Relationship="Self.FK_tblpeshant_tblBloodgroup" FromRole="tblPatient" ToRole="tblBloodgroup" />
+    <NavigationProperty Name="tblCasePapers" Relationship="Self.FK_tblCasePaper_tblPatient" FromRole="tblPatient" ToRole="tblCasePaper" />
+    <NavigationProperty Name="tblStaff" Relationship="Self.FK_tblPatient_tblStaff" FromRole="tblPatient" ToRole="tblStaff" />
+  </EntityType>
+  <EntityType Name="tblPatientfeeDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="pmid" Type="Int32" />
+    <Property Name="Feeid" Type="Int32" />
+    <Property Name="feeprice" Type="Double" />
+  </EntityType>
+  <EntityType Name="tblPayment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblprescripationMedicineDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prid" Type="Int32" />
+    <Property Name="medicineid" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="MDose" Type="Boolean" />
+    <Property Name="AfDose" Type="Boolean" />
+    <Property Name="NDose" Type="Boolean" />
+    <NavigationProperty Name="tblMedicine" Relationship="Self.FK_tblparentmedicineDetails_tblmedicine" FromRole="tblprescripationMedicineDetails" ToRole="tblMedicine" />
+    <NavigationProperty Name="tblPrescriptionMaster" Relationship="Self.FK_tblPatientMedicineDetails_tblPrescription" FromRole="tblprescripationMedicineDetails" ToRole="tblPrescriptionMaster" />
+  </EntityType>
+  <EntityType Name="tblPrescriptionMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aid" Type="Int32" />
+    <Property Name="Naration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createdon" Type="DateTime" Precision="3" />
+    <Property Name="Symtam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Disiese" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fees" Relationship="Self.FK_tblFee_tblPrescriptionMaster" FromRole="tblPrescriptionMaster" ToRole="Fee" />
+    <NavigationProperty Name="tblAppointment" Relationship="Self.FK_tblPrescription_tblAppointment" FromRole="tblPrescriptionMaster" ToRole="tblAppointment" />
+    <NavigationProperty Name="tblprescripationMedicineDetails" Relationship="Self.FK_tblPatientMedicineDetails_tblPrescription" FromRole="tblPrescriptionMaster" ToRole="tblprescripationMedicineDetails" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAdmins" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblRole" ToRole="tblAdmin" />
+    <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblRole" FromRole="tblRole" ToRole="tblDoctor" />
+  </EntityType>
+  <EntityType Name="tblStaff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblDoctor" Relationship="Self.FK_tblStaff_tblDoctor" FromRole="tblStaff" ToRole="tblDoctor" />
+    <NavigationProperty Name="tblPatients" Relationship="Self.FK_tblPatient_tblStaff" FromRole="tblStaff" ToRole="tblPatient" />
+  </EntityType>
+  <Association Name="FK_Fee_tblPatient">
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
+    <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fee">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFee_tblPrescriptionMaster">
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="0..1" />
+    <End Role="Fee" Type="Self.Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPrescriptionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fee">
+        <PropertyRef Name="Prid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAdmin_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAdmin">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblClinic_tblAdmin">
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="1" />
+    <End Role="tblClinic" Type="Self.tblClinic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblClinic">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblAdmin">
+    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppointment_tblCasePaper">
+    <End Role="tblCasePaper" Type="Self.tblCasePaper" Multiplicity="0..1" />
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCasePaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAppointment">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppointment_tblDoctor">
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAppointment">
+        <PropertyRef Name="DrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPrescription_tblAppointment">
+    <End Role="tblAppointment" Type="Self.tblAppointment" Multiplicity="0..1" />
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppointment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPrescriptionMaster">
+        <PropertyRef Name="Aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpeshant_tblBloodgroup">
+    <End Role="tblBloodgroup" Type="Self.tblBloodgroup" Multiplicity="0..1" />
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBloodgroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPatient">
+        <PropertyRef Name="bloodgroupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCasePaper_tblPatient">
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
+    <End Role="tblCasePaper" Type="Self.tblCasePaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPatient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblCasePaper">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblClinic">
+    <End Role="tblClinic" Type="Self.tblClinic" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClinic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="ClinicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDoctor_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDoctor">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStaff_tblDoctor">
+    <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblmaterial_tblGst">
+    <End Role="tblGst" Type="Self.tblGst" Multiplicity="0..1" />
+    <End Role="tblmaterial" Type="Self.tblmaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGst">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblmaterial">
+        <PropertyRef Name="Gstid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblparentmedicineDetails_tblmedicine">
+    <End Role="tblMedicine" Type="Self.tblMedicine" Multiplicity="0..1" />
+    <End Role="tblprescripationMedicineDetails" Type="Self.tblprescripationMedicineDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMedicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblprescripationMedicineDetails">
+        <PropertyRef Name="medicineid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPatient_tblStaff">
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="0..1" />
+    <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStaff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPatient">
+        <PropertyRef Name="Createdby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPatientMedicineDetails_tblPrescription">
+    <End Role="tblPrescriptionMaster" Type="Self.tblPrescriptionMaster" Multiplicity="0..1" />
+    <End Role="tblprescripationMedicineDetails" Type="Self.tblprescripationMedicineDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPrescriptionMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblprescripationMedicineDetails">
+        <PropertyRef Name="prid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Fees" EntityType="Self.Fee" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+    <EntitySet Name="tblAppointments" EntityType="Self.tblAppointment" />
+    <EntitySet Name="tblBloodgroups" EntityType="Self.tblBloodgroup" />
+    <EntitySet Name="tblCasePapers" EntityType="Self.tblCasePaper" />
+    <EntitySet Name="tblClinics" EntityType="Self.tblClinic" />
+    <EntitySet Name="tblDoctors" EntityType="Self.tblDoctor" />
+    <EntitySet Name="tblGsts" EntityType="Self.tblGst" />
+    <EntitySet Name="tblmaterials" EntityType="Self.tblmaterial" />
+    <EntitySet Name="tblMedicines" EntityType="Self.tblMedicine" />
+    <EntitySet Name="tblPatients" EntityType="Self.tblPatient" />
+    <EntitySet Name="tblPatientfeeDetails" EntityType="Self.tblPatientfeeDetail" />
+    <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
+    <EntitySet Name="tblprescripationMedicineDetails" EntityType="Self.tblprescripationMedicineDetail" />
+    <EntitySet Name="tblPrescriptionMasters" EntityType="Self.tblPrescriptionMaster" />
+    <EntitySet Name="tblRoles" EntityType="Self.tblRole" />
+    <EntitySet Name="tblStaffs" EntityType="Self.tblStaff" />
+    <AssociationSet Name="FK_Fee_tblPatient" Association="Self.FK_Fee_tblPatient">
+      <End Role="tblPatient" EntitySet="tblPatients" />
+      <End Role="Fee" EntitySet="Fees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFee_tblPrescriptionMaster" Association="Self.FK_tblFee_tblPrescriptionMaster">
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
+      <End Role="Fee" EntitySet="Fees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAdmin_tblRole" Association="Self.FK_tblAdmin_tblRole">
+      <End Role="tblRole" EntitySet="tblRoles" />
+      <End Role="tblAdmin" EntitySet="tblAdmins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblClinic_tblAdmin" Association="Self.FK_tblClinic_tblAdmin">
+      <End Role="tblAdmin" EntitySet="tblAdmins" />
+      <End Role="tblClinic" EntitySet="tblClinics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblAdmin" Association="Self.FK_tblDoctor_tblAdmin">
+      <End Role="tblAdmin" EntitySet="tblAdmins" />
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppointment_tblCasePaper" Association="Self.FK_tblAppointment_tblCasePaper">
+      <End Role="tblCasePaper" EntitySet="tblCasePapers" />
+      <End Role="tblAppointment" EntitySet="tblAppointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppointment_tblDoctor" Association="Self.FK_tblAppointment_tblDoctor">
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+      <End Role="tblAppointment" EntitySet="tblAppointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPrescription_tblAppointment" Association="Self.FK_tblPrescription_tblAppointment">
+      <End Role="tblAppointment" EntitySet="tblAppointments" />
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpeshant_tblBloodgroup" Association="Self.FK_tblpeshant_tblBloodgroup">
+      <End Role="tblBloodgroup" EntitySet="tblBloodgroups" />
+      <End Role="tblPatient" EntitySet="tblPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCasePaper_tblPatient" Association="Self.FK_tblCasePaper_tblPatient">
+      <End Role="tblPatient" EntitySet="tblPatients" />
+      <End Role="tblCasePaper" EntitySet="tblCasePapers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblClinic" Association="Self.FK_tblDoctor_tblClinic">
+      <End Role="tblClinic" EntitySet="tblClinics" />
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDoctor_tblRole" Association="Self.FK_tblDoctor_tblRole">
+      <End Role="tblRole" EntitySet="tblRoles" />
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblDoctor" Association="Self.FK_tblStaff_tblDoctor">
+      <End Role="tblDoctor" EntitySet="tblDoctors" />
+      <End Role="tblStaff" EntitySet="tblStaffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblmaterial_tblGst" Association="Self.FK_tblmaterial_tblGst">
+      <End Role="tblGst" EntitySet="tblGsts" />
+      <End Role="tblmaterial" EntitySet="tblmaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblparentmedicineDetails_tblmedicine" Association="Self.FK_tblparentmedicineDetails_tblmedicine">
+      <End Role="tblMedicine" EntitySet="tblMedicines" />
+      <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPatient_tblStaff" Association="Self.FK_tblPatient_tblStaff">
+      <End Role="tblStaff" EntitySet="tblStaffs" />
+      <End Role="tblPatient" EntitySet="tblPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPatientMedicineDetails_tblPrescription" Association="Self.FK_tblPatientMedicineDetails_tblPrescription">
+      <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
+      <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

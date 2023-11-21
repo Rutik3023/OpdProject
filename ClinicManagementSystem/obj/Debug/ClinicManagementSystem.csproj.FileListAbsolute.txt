@@ -1,0 +1,553 @@
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.dll.config
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.pdb
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.exe
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.exe.config
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.rsp
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.exe
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.exe.config
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.rsp
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Managed.Core.targets
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.AppContext.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Collections.Immutable.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Console.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Globalization.Calendars.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.Compression.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Net.Http.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Net.Sockets.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Reflection.Metadata.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.ValueTuple.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XmlDocument.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.exe
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.exe.config
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.rsp
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe.config
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Helpers.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Mvc.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Razor.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Razor.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Razor.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Razor.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Helpers.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Mvc.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.AssemblyReference.cache
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CopyComplete
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.dll
+F:\Vishwa Technology\Practical\Batch 20\Project\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.pdb
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.dll.config
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\ClinicManagementSystem.pdb
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.exe
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.exe.config
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csc.rsp
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.exe
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.exe.config
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\csi.rsp
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.AppContext.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Collections.Immutable.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Console.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Globalization.Calendars.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.Compression.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Net.Http.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Net.Sockets.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Reflection.Metadata.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.ValueTuple.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.exe
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.exe.config
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\vbc.rsp
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe.config
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Helpers.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Mvc.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Razor.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Razor.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Razor.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Webpages.Razor.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Helpers.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Web.Mvc.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CopyComplete
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.pdb
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\EntityFramework.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\EntityFramework.SqlServer.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\EntityFramework.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\EntityFramework.SqlServer.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\AutoMapper.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Options.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Buffers.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.ComponentModel.Annotations.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Memory.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Numerics.Vectors.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Text.Encodings.Web.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Unity.Abstractions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Unity.Container.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Unity.Mvc5.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Threading.Tasks.Extensions.dll
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\AutoMapper.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Options.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Buffers.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Memory.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Numerics.Vectors.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\System.Text.Encodings.Web.xml
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Unity.Abstractions.pdb
+E:\ClinicManagementSystem (1)\ClinicManagementSystem\ClinicManagementSystem\bin\Unity.Container.pdb
+D:\opd\OPd\ClinicManagementSystem\bin\ClinicManagementSystem.dll.config
+D:\opd\OPd\ClinicManagementSystem\bin\ClinicManagementSystem.dll
+D:\opd\OPd\ClinicManagementSystem\bin\ClinicManagementSystem.pdb
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csc.exe
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csc.exe.config
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csc.rsp
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csi.exe
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csi.exe.config
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\csi.rsp
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.Managed.Core.targets
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.AppContext.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Collections.Immutable.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Console.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Globalization.Calendars.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.IO.Compression.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Net.Http.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Net.Sockets.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Reflection.Metadata.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.ValueTuple.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Xml.XmlDocument.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\vbc.exe
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\vbc.exe.config
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\vbc.rsp
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe
+D:\opd\OPd\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe.config
+D:\opd\OPd\ClinicManagementSystem\bin\AutoMapper.dll
+D:\opd\OPd\ClinicManagementSystem\bin\EntityFramework.dll
+D:\opd\OPd\ClinicManagementSystem\bin\EntityFramework.SqlServer.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Options.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Buffers.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.ComponentModel.Annotations.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Memory.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Numerics.Vectors.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Text.Encodings.Web.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Helpers.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Mvc.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Razor.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.Razor.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Unity.Abstractions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Unity.Container.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Unity.Mvc5.dll
+D:\opd\OPd\ClinicManagementSystem\bin\System.Threading.Tasks.Extensions.dll
+D:\opd\OPd\ClinicManagementSystem\bin\AutoMapper.xml
+D:\opd\OPd\ClinicManagementSystem\bin\EntityFramework.xml
+D:\opd\OPd\ClinicManagementSystem\bin\EntityFramework.SqlServer.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Options.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Buffers.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Memory.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Numerics.Vectors.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Text.Encodings.Web.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Unity.Abstractions.pdb
+D:\opd\OPd\ClinicManagementSystem\bin\Unity.Container.pdb
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Razor.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Webpages.Razor.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Helpers.xml
+D:\opd\OPd\ClinicManagementSystem\bin\System.Web.Mvc.xml
+D:\opd\OPd\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\opd\OPd\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+D:\opd\OPd\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CopyComplete
+D:\opd\OPd\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.dll
+D:\opd\OPd\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.pdb
+D:\opd\OPd\ClinicManagementSystem\bin\Newtonsoft.Json.dll
+D:\opd\OPd\ClinicManagementSystem\bin\Newtonsoft.Json.xml
+D:\opd\OPd\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.AssemblyReference.cache
+E:\Hospital Mgmt\ClinicManagementSystem\bin\ClinicManagementSystem.dll.config
+E:\Hospital Mgmt\ClinicManagementSystem\bin\ClinicManagementSystem.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\ClinicManagementSystem.pdb
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csc.exe
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csc.exe.config
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csc.rsp
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csi.exe
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csi.exe.config
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\csi.rsp
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.AppContext.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Collections.Immutable.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Console.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Globalization.Calendars.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.IO.Compression.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Net.Http.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Net.Sockets.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Reflection.Metadata.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.ValueTuple.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\vbc.exe
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\vbc.exe.config
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\vbc.rsp
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe
+E:\Hospital Mgmt\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe.config
+E:\Hospital Mgmt\ClinicManagementSystem\bin\AutoMapper.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\EntityFramework.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\EntityFramework.SqlServer.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Options.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Newtonsoft.Json.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Buffers.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.ComponentModel.Annotations.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Memory.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Numerics.Vectors.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Text.Encodings.Web.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Helpers.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Mvc.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Razor.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.Razor.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Unity.Abstractions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Unity.Container.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Unity.Mvc5.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Threading.Tasks.Extensions.dll
+E:\Hospital Mgmt\ClinicManagementSystem\bin\AutoMapper.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\EntityFramework.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\EntityFramework.SqlServer.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Options.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Newtonsoft.Json.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Buffers.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Memory.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Numerics.Vectors.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Text.Encodings.Web.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Unity.Abstractions.pdb
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Unity.Container.pdb
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Razor.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Webpages.Razor.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Helpers.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\System.Web.Mvc.xml
+E:\Hospital Mgmt\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Hospital Mgmt\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.AssemblyReference.cache
+E:\Hospital Mgmt\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+E:\Hospital Mgmt\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CopyComplete
+E:\Hospital Mgmt\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.dll
+E:\Hospital Mgmt\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.pdb
+D:\today\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.AssemblyReference.cache
+D:\today\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CoreCompileInputs.cache
+D:\today\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.dll
+D:\today\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.pdb
+D:\today\ClinicManagementSystem\bin\ClinicManagementSystem.dll.config
+D:\today\ClinicManagementSystem\bin\ClinicManagementSystem.dll
+D:\today\ClinicManagementSystem\bin\ClinicManagementSystem.pdb
+D:\today\ClinicManagementSystem\bin\roslyn\csc.exe
+D:\today\ClinicManagementSystem\bin\roslyn\csc.exe.config
+D:\today\ClinicManagementSystem\bin\roslyn\csc.rsp
+D:\today\ClinicManagementSystem\bin\roslyn\csi.exe
+D:\today\ClinicManagementSystem\bin\roslyn\csi.exe.config
+D:\today\ClinicManagementSystem\bin\roslyn\csi.rsp
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.Managed.Core.targets
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\today\ClinicManagementSystem\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.AppContext.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Collections.Immutable.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Console.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Globalization.Calendars.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.IO.Compression.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Net.Http.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Net.Sockets.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Reflection.Metadata.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.ValueTuple.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Xml.XmlDocument.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.dll
+D:\today\ClinicManagementSystem\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\today\ClinicManagementSystem\bin\roslyn\vbc.exe
+D:\today\ClinicManagementSystem\bin\roslyn\vbc.exe.config
+D:\today\ClinicManagementSystem\bin\roslyn\vbc.rsp
+D:\today\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe
+D:\today\ClinicManagementSystem\bin\roslyn\VBCSCompiler.exe.config
+D:\today\ClinicManagementSystem\bin\AutoMapper.dll
+D:\today\ClinicManagementSystem\bin\EntityFramework.dll
+D:\today\ClinicManagementSystem\bin\EntityFramework.SqlServer.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Options.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.dll
+D:\today\ClinicManagementSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\today\ClinicManagementSystem\bin\Newtonsoft.Json.dll
+D:\today\ClinicManagementSystem\bin\System.Buffers.dll
+D:\today\ClinicManagementSystem\bin\System.ComponentModel.Annotations.dll
+D:\today\ClinicManagementSystem\bin\System.Memory.dll
+D:\today\ClinicManagementSystem\bin\System.Numerics.Vectors.dll
+D:\today\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\today\ClinicManagementSystem\bin\System.Text.Encodings.Web.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Helpers.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Mvc.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Razor.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.dll
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.Razor.dll
+D:\today\ClinicManagementSystem\bin\Unity.Abstractions.dll
+D:\today\ClinicManagementSystem\bin\Unity.Container.dll
+D:\today\ClinicManagementSystem\bin\Unity.Mvc5.dll
+D:\today\ClinicManagementSystem\bin\System.Threading.Tasks.Extensions.dll
+D:\today\ClinicManagementSystem\bin\AutoMapper.xml
+D:\today\ClinicManagementSystem\bin\EntityFramework.xml
+D:\today\ClinicManagementSystem\bin\EntityFramework.SqlServer.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Extensions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Http.Features.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.ObjectPool.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Options.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Extensions.Primitives.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.Net.Http.Headers.xml
+D:\today\ClinicManagementSystem\bin\Newtonsoft.Json.xml
+D:\today\ClinicManagementSystem\bin\System.Buffers.xml
+D:\today\ClinicManagementSystem\bin\System.Memory.xml
+D:\today\ClinicManagementSystem\bin\System.Numerics.Vectors.xml
+D:\today\ClinicManagementSystem\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\today\ClinicManagementSystem\bin\System.Text.Encodings.Web.xml
+D:\today\ClinicManagementSystem\bin\Unity.Abstractions.pdb
+D:\today\ClinicManagementSystem\bin\Unity.Container.pdb
+D:\today\ClinicManagementSystem\bin\System.Web.Razor.xml
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.xml
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.Deployment.xml
+D:\today\ClinicManagementSystem\bin\System.Web.Webpages.Razor.xml
+D:\today\ClinicManagementSystem\bin\System.Web.Helpers.xml
+D:\today\ClinicManagementSystem\bin\System.Web.Mvc.xml
+D:\today\ClinicManagementSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\today\ClinicManagementSystem\obj\Debug\ClinicManagementSystem.csproj.CopyComplete

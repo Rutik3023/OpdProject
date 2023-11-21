@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    .clinicInfo {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .clinicData {
+        width: 15rem;
+        margin: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+</style>
+
+
+           
+
+
+
+<div class="HomeContent px-4 py-2">
+    <div class="clinicInfo">
+        <div class="clinicData p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <label>TOTAL PATIENTS</label>
+                    <h5 class="mt-2">@ViewBag.patient</h5>
+                </div>
+                <div>
+                    <i class='bx bxs-user-circle' style="font-size: 55px;"></i>
+                </div>
+            </div>
+            <p class="text-primary mt-3 mb-0">Total Visited Patients</p>
+        </div>
+
+        <div class="clinicData p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <label>TOTAL Appointments</label>
+                    <h5 class="mt-2">@ViewBag.Appoyment</h5>
+                </div>
+                <div>
+                    <i class='bx bxs-user-circle' style="font-size: 55px;"></i>
+                </div>
+            </div>
+            <p class="text-primary mt-3 mb-0">Total Appointments</p>
+        </div>
+
+        <div class="clinicData p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <label>TOTAL Doctors</label>
+                    <h5 class="mt-2">@ViewBag.Doctor</h5>
+                </div>
+                <div>
+                    <i class='bx bxs-user-circle' style="font-size: 55px;"></i>
+                </div>
+            </div>
+            <p class="text-primary mt-3 mb-0">Total Doctors</p>
+        </div>
+
+        <div class="clinicData p-3 rounded-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <label>TOTAL Staff</label>
+                    <h5 class="mt-2">@ViewBag.Staff</h5>
+                </div>
+                <div>
+                    <i class='bx bxs-user-circle' style="font-size: 55px;"></i>
+                </div>
+            </div>
+            <p class="text-primary mt-3 mb-0">Total Staff</p>
+        </div>
+    </div>
+</div>

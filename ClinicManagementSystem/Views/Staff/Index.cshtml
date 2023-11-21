@@ -1,0 +1,364 @@
+﻿@model ClinicManagementSystem.Models.VMStaff
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script>
+    Loaddata(0);
+    $(document).ready(function () {
+        $("#OpenModal").click(function () {
+            $("#StaffModal").show();
+        });
+
+        $("[data-bs-dismiss='modal']").click(function () {
+            $("#StaffModal").hide();
+        });
+
+        $("#save").click(function () {
+
+            //validation....
+            //var gender = "";
+            //if ($("#RodMale").prop("checked")) {
+            //    gender = "M";
+
+            //}
+            //else {
+
+            //    gender = "F";
+
+            //}
+            // save to db
+
+            var obj = {
+                "Id": $("#Id").val(),
+                "Role": $("#Role").val(),
+                "Name": $("#Name").val(),
+                "Mobile": $("#Mobile").val(),
+                "Address": $("#Address").val(),
+                "UserName": $("#UserName").val(),
+                
+
+                "Password": $("#Password").val()
+               
+            };
+            //  console.log(JSON.stringify(obj));
+            $.ajax({
+                "url": "/StaffApi/Save",
+                "method": "post",
+                "contentType": "application/json",
+                "data": JSON.stringify(obj),
+
+                success: function (data) {
+
+                    alert(data.Message);
+                    Loaddata(0);
+                    $("#StaffModal").hide();
+
+                },
+                error: function (err) { console.log(err); }
+            });
+
+
+        });
+
+
+
+
+    });
+
+
+
+    function Loaddata(pagno) {
+
+        $.ajax({
+
+            "url": "/StaffApi/GetAllC?pagno=" + pagno,
+            "method": "get",
+            success: function (Data) {
+
+
+                // console.log(Data);
+                $("#Staffload").empty();
+                $.each(Data.Message, function (index, item) {
+                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    previous = Data.pageno - 1;
+                    Next = Data.pageno + 1;
+                    if (previous == -1) {
+                        previous = 0;
+                    }
+                    console.log(Data.Message);
+                    var next = Data.pageno + 1;
+                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+
+                    
+                  
+                  
+              
+                    
+               
+              
+                    
+
+
+
+
+
+                  
+                })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            }, 
+            error: function (error) {
+
+                console.log(error);                              
+                 
+            }
+
+
+        });
+
+
+    }
+
+    function Edit(int) {
+        $.ajax({
+            "url": "/DoctorApi/FindByid?id=" + id,
+            "method": "get",
+            success: function (rep) {
+
+                if (rep.Code == 0) {
+
+                    var obj = rep.Message;
+
+                    console.log(obj);
+
+
+                    $("#DoctorModal").show();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+      
+
+    }
+
+    function Delete(int) {
+        if (confirm("Are you sure?")) {
+
+            $.ajax({
+                "url": "/StaffApi/Delete?id=" + id,
+                "method": "get",
+                success: function (rep) {
+
+                    if (rep.Code == 0) {
+                        alert(rep.Message);
+                        Loaddata(0);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+      
+
+    }
+
+
+</script>
+
+<div class="modal" id="StaffModal" tabindex="-1" style="background: #00000014;">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width:70vw">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Staff Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control mb-2", @rows = "4" })
+                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="col-md-offset-2 col-md-12 text-end">
+                                <input type="button" id="save" value="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div class="StaffPage px-4 py-3 border-top">
+    <div class="row">
+        <div class="col-10">
+            <div class="input-group">
+                <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
+                <input type="text" class="form-control" placeholder="Search staff by ID, name and email....">
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-sm d-flex align-items-center text-white" style="background: #00acb1;" id="OpenModal"><i class='bx bx-plus fs-5'></i> Add New Staff</button>
+        </div>
+    </div>
+    <hr />
+    <div class="AllStaffData overflow-auto mt-2 bg-secondary p-3" style="max-height:90vh;">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Role</th>
+                    <th>Staff Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Mobile No</th>
+                    <th>Photo</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>CreatedOn</th>
+                </tr>
+            </thead>
+            <tbody id="Staffload">
+                @*<tr>
+                    <td>
+                        <div class="btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-show m-0'></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
+                        </div>
+                    </td>
+                    <td>Id</td>
+                    <td>Role</td>
+                    <td>Staff Name</td>
+                    <td>Email</td>
+                    <td>Address</td>
+                    <td>Mobile No</td>
+                    <td>Photo</td>
+                    <td>Username</td>
+                    <td>Password</td>
+                    <td>CreatedOn</td>
+                </tr>*@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 text-right">
+        @{
+
+
+
+
+
+            <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
+            int totaln = (int)TempData.Peek("count");
+            for (int i = 0; i <= totaln / 8; i++)
+            {
+                int total = i + 1;
+                <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+            }
+            <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
+
+        }
+
+
+    </div>
+
+
+
+
+</div>
