@@ -8,9 +8,11 @@ namespace ClinicManagementSystem.Controllers
 {
     public class CasePaperController : Controller
     {
+        HospitalDBEntities db = new HospitalDBEntities();
         // GET: CasePaper
         public ActionResult Index()
         {
+            TempData["count"] = db.tblCasePapers.Count();
             return View();
         }
     }

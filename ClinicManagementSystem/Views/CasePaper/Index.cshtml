@@ -17,6 +17,44 @@
         });
     });
 
+    function Loaddata(pagno) {
+
+        $.ajax({
+
+             @*"url": "/CasePaperApi/GetAllC?pagno=" + pagno,
+            "method": "get",
+            success: function (Data) {
+
+
+                // console.log(Data);
+                $("#CasePaperload").empty();
+                $.each(Data.Message, function (index, item) {
+                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    previous = Data.pageno - 1;
+                    Next = Data.pageno + 1;
+                    if (previous == -1) {
+                        previous = 0;
+                    }
+                    // console.log(Data.Message);
+                    var next = Data.pageno + 1;
+                    $("#CasePaperload").append("<tr><td><div class='btn-group-sm' role='group'aria-label='Basic example'>@Html.ActionLink("Add Appointment", "Appointment", null, new { @class = "btn btn-sm btn-outline-warning" })<button type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td> <td>Height</td><td>Weight</td> <td>Blood Presure</td><td>Casepaper Fee</td><td>Is Valid</td><td>Health Issue</td><td>CreatedOn</td></tr>");
+
+
+
+                })
+            },
+            error: function (error) {
+
+                console.log(error);
+
+            }*@
+
+
+
+
+        });
+    }
+
 </script>
 
 <div class="modal" id="CasepaperModal" tabindex="-1" style="background: #00000014;">
@@ -158,27 +196,53 @@
                     <th>CreatedOn</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="btn-group-sm" role="group" aria-label="Basic example">
-                            @Html.ActionLink("Add Appointment", "Appointment", null, new { @class = "btn btn-sm btn-outline-warning" })
-                            <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
-                            <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
-                        </div>
-                    </td>
-                    <td>Id</td>
-                    <td>Patient Name</td>
-                    <td>Height</td>
-                    <td>Weight</td>
-                    <td>Blood Presure</td>
-                    <td>Casepaper Fee</td>
-                    <td>Is Valid</td>
-                    <td>Health Issue</td>
-                    <td>CreatedOn</td>
-                </tr>
+            <tbody id="CasePaperload">
+                @*<tr>
+                        <td>
+                            <div class="btn-group-sm" role="group" aria-label="Basic example">
+                                @Html.ActionLink("Add Appointment", "Appointment", null, new { @class = "btn btn-sm btn-outline-warning" })
+                                <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
+                                <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
+                            </div>
+                        </td>
+                        <td>Id</td>
+                        <td>Patient Name</td>
+                        <td>Height</td>
+                        <td>Weight</td>
+                        <td>Blood Presure</td>
+                        <td>Casepaper Fee</td>
+                        <td>Is Valid</td>
+                        <td>Health Issue</td>
+                        <td>CreatedOn</td>
+                    </tr>*@
             </tbody>
         </table>
     </div>
 </div>
+<div class="row">
+    <div class="col-12 text-right">
+        @{
 
+
+
+
+
+            <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
+            int totaln = (int)TempData.Peek("count");
+            for (int i = 0; i <= totaln / 8; i++)
+            {
+                int total = i + 1;
+                <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+            }
+            <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
+
+        }
+
+
+    </div>
+
+
+
+
+</div>
