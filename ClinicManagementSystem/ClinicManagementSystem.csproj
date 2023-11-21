@@ -198,6 +198,7 @@
     <Compile Include="Api\CommonRepo.cs" />
     <Compile Include="Api\DoctorApiController.cs" />
     <Compile Include="Api\Pageset.cs" />
+    <Compile Include="Api\PatientApiController.cs" />
     <Compile Include="Api\Reports.cs" />
     <Compile Include="Api\StaffApiController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -335,6 +336,7 @@
     <Folder Include="DoctorPhoto\" />
     <Folder Include="Views\Appointment\" />
     <Folder Include="Views\DoctorApi\" />
+    <Folder Include="Views\PatientApi\" />
     <Folder Include="Views\StaffApi\" />
   </ItemGroup>
   <ItemGroup>
