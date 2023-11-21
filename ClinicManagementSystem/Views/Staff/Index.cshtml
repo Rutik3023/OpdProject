@@ -92,20 +92,6 @@
                     var next = Data.pageno + 1;
                     $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
 
-                    
-                  
-                  
-              
-                    
-               
-              
-                    
-
-
-
-
-
-                  
                 })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             }, 
             error: function (error) {
@@ -196,7 +182,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-8">
+
+                                    <div class="col-12">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -205,7 +192,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+
+                                    <div class="col-6">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -214,15 +202,48 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                <input type="file" name="Photo" value="" class="form-control" />
+                                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2 mb-2" })
+                                            <div class="col-md-12">
+                                                @Html.RadioButtonFor(model => model.Gender, "M", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } })Male
+                                                @Html.RadioButtonFor(model => model.Gender, "F", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } }) Female
+                                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control mb-2", @rows = "4" })
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "form-control mb-2", @rows = "2" })
                                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-6">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -232,6 +253,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-6">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -242,22 +264,22 @@
                                         </div>
                                     </div>
                                     @*<div class="col-6">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
                                 </div>
                             </div>
                         </div>
