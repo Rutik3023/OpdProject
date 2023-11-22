@@ -151,6 +151,8 @@
 
                     alert(data.Message);
                     Loaddata(0);
+                    Clear();
+
                     $("#DoctorModal").hide();
 
                 },
@@ -297,6 +299,25 @@
         });
 
 
+    }
+
+
+    function Clear()
+    {
+        $("#Id").val("");
+        $("#ClinicId").val("");
+        $("#Name").val("");
+        $("#Address").val("");
+        $("#Mobile").val("");
+        $("#Email").val("");
+        $("#Specilization").val("");
+        $("#Qulification").val("");
+        $("#Role").val("");
+        $("#Photo").val("");
+        $("#UserName").val("");
+        $("#Password").val("");
+        $("#RdoFemale").prop("checked", false);
+        $("#RdoMale").prop("checked", false);
     }
 
 </script>
