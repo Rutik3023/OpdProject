@@ -15,13 +15,46 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#AppointmentModal").hide();
         });
+
+
+        $("#PId").change(function () {
+
+            $.ajax({
+
+                "url": "/AppointmentApi/Loadcasid?id=" + $("#PId").val() ,
+                "method": "get",
+                success: function (Data) {
+                    $("#CasepaperId").val("");
+                    if (Data.Code==0) {
+                        var obj = Data.Message;
+                        $("#CasepaperId").val(obj.Id);
+                    }
+                   
+                 
+                },
+                error: function (error) {
+
+                    console.log(error);
+
+                }
+
+
+            });
+
+            
+
+        })
+
+
+
+
     });
 
     function Loaddata(pagno) {
 
         $.ajax({
 
-            "url": "/StaffApi/GetAllC?pagno=" + pagno,
+            "url": "/AppointmentApi/GetAllC?pagno=" + pagno,
             "method": "get",
             success: function (Data) {
 
@@ -29,7 +62,7 @@
                 // console.log(Data);
                 $("#Staffload").empty();
                 $.each(Data.Message, function (index, item) {
-                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    var myDate = new Date(item.AppointmentDate.match(/\d+/)[0] * 1);
                     previous = Data.pageno - 1;
                     Next = Data.pageno + 1;
                     if (previous == -1) {
@@ -37,7 +70,10 @@
                     }
                     console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                    $("#Appoyment").append("<tr><td><div class='btn - group - sm' role='group' aria-label='Basic example'><button type='button' class='btn btn - sm btn - outline - warning'><i class='bx bxs-edit m-0'></i>Select</button> <button type='button' class='btn btn - sm btn - outline - primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn - sm btn - outline - danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Height</td><td>Weight</td></tr>")
+
+
+
 
                 })
             },
@@ -79,7 +115,7 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.DoctorId, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.DropDownListFor(model => model.DoctorId, (IEnumerable<SelectListItem>)ViewBag.Dr, new { @class = "form-control" } )
                                                 @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -106,7 +142,7 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.PId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.PId, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.DropDownListFor(model => model.PId, (IEnumerable<SelectListItem>)ViewBag.Patient, new { @class = "form-control" } )
                                                 @Html.ValidationMessageFor(model => model.PId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -169,8 +205,8 @@
 
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="Appoyment">
+                @*<tr>
                     <td>
                         <div class="btn-group-sm" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-edit m-0'></i>Select</button>
@@ -183,7 +219,7 @@
                     <td>Height</td>
                     <td>Weight</td>
                     
-                </tr>
+                </tr>*@
             </tbody>
         </table>
     </div>

@@ -18,5 +18,9 @@ namespace ClinicManagementSystem.Iservises
         dynamic GetAllKey(string key);
 
         dynamic GetAllPage(int pageno);
+
+
+        dynamic loadCasid(int id);
+
     }
 }

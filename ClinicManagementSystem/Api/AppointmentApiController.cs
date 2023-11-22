@@ -125,5 +125,21 @@ namespace ClinicManagementSystem.Api
             return Json(rp, JsonRequestBehavior.AllowGet);
 
         }
+
+        public JsonResult Loadcasid(int id)
+        {
+            Reports rp = new Reports();
+
+            var obj = c.loadCasid(id);
+
+            if (obj != null)
+            {
+                rp.Code = 0;
+                rp.Message = obj;
+            }
+
+            return Json(rp, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }

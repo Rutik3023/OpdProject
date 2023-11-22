@@ -108,5 +108,13 @@ namespace ClinicManagementSystem.Servises
 
             return obj;
         }
+
+        public dynamic loadCasid(int id)
+        {
+
+            dynamic obj = db.tblCasePapers.Select(s=> new{s.Id,s.Pid }).Where(w => w.Pid == id).FirstOrDefault();
+
+            return obj;
+        }
     }
 }
