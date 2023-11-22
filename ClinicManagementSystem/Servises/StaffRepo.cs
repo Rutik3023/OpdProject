@@ -96,8 +96,9 @@ namespace ClinicManagementSystem.Servises
                     list.Role = obj.Role;
                    list.UserName = obj.UserName;
                   list.Password = obj.Password;
-                
-                    list.CreatedOn = DateTime.Now;
+                list.Email = obj.Email;
+                list.Gender = obj.Gender;
+                list.CreatedOn = DateTime.Now;
                     list.CreatedBy = 1;
                 if (obj.Id == 0)
                 {

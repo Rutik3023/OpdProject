@@ -60,7 +60,7 @@ namespace ClinicManagementSystem.Api
         }
 
         [HttpPost]
-        public JsonResult Save(tblStaff obj)
+        public JsonResult Save(VMStaff obj)
 
         {
 

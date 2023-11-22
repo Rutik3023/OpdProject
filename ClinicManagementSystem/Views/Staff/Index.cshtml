@@ -15,20 +15,51 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#StaffModal").hide();
         });
+        $("#upload").change(function () {
+
+            var formData = new FormData();
+            var totalFiles = document.getElementById("upload").files.length;
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById("upload").files[i];
+                formData.append("upload", file);
+            }
+            $.ajax({
+                type: "POST",
+                url: '/DoctorApi/Upload',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+
+                },
+                error: function (error) {
+
+                }
+                //}).done(function () {
+                //    alert('success');
+                //}.fail(function (xhr, status, errorThrown) {
+                //    alert('fail');
+                //};
+            });
+        });
+
+
+
 
         $("#save").click(function () {
 
             //validation....
-            //var gender = "";
-            //if ($("#RodMale").prop("checked")) {
-            //    gender = "M";
+            var gender = "";
+            if ($("#RdoMale").prop("checked")) {
 
-            //}
-            //else {
+                gender = "M";
 
-            //    gender = "F";
+            }
+            if ($("#RdoFemale").prop("checked")) {
 
-            //}
+                gender = "F";
+            }
             // save to db
 
             var obj = {
@@ -38,8 +69,8 @@
                 "Mobile": $("#Mobile").val(),
                 "Address": $("#Address").val(),
                 "UserName": $("#UserName").val(),
-                
-
+                "Address": $("#Address").val(),
+                "Email": $("#Email").val(),
                 "Password": $("#Password").val()
                
             };
@@ -106,9 +137,9 @@
 
     }
 
-    function Edit(int) {
+    function Edit(id) {
         $.ajax({
-            "url": "/DoctorApi/FindByid?id=" + id,
+            "url": "/StaffApi/FindByid?id=" + id,
             "method": "get",
             success: function (rep) {
 
@@ -116,10 +147,25 @@
 
                     var obj = rep.Message;
 
+                    $("#Id").val(obj.Id);
+                    $("#Role").val(obj.Role);
+                    $("#Name").val(obj.Name);
+                    $("#Mobile").val(obj.Mobile);
+                    $("#UserName").val(obj.UserName);
+                    $("#Password").val(obj.Password);
+                    $("#Address").val(obj.Address);
+                    $("#Email").val(obj.Email);
+                    if (obj.Gender == "M") {
+                        $("#RdoMale").prop("checked", true);
+                    }
+                    if (obj.Gender == "F") {
+
+                        $("#RdoFemale").prop("checked", true);
+                    }
                     console.log(obj);
 
 
-                    $("#DoctorModal").show();
+                    $("#StaffModal").show();
                 }
             },
             error: function (err) {
@@ -130,7 +176,7 @@
 
     }
 
-    function Delete(int) {
+    function Delete(id) {
         if (confirm("Are you sure?")) {
 
             $.ajax({
@@ -173,6 +219,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
+                                    @Html.HiddenFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-5">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -227,8 +274,11 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2 mb-2" })
                                             <div class="col-md-12">
-                                                @Html.RadioButtonFor(model => model.Gender, "M", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } })Male
-                                                @Html.RadioButtonFor(model => model.Gender, "F", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } }) Female
+                                                @*@Html.RadioButtonFor(model => model.Gender, "M", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } })Male
+        @Html.RadioButtonFor(model => model.Gender, "F", new { htmlAttributes = new { @class = "form-radio", @id = "rdoMale" } }) Female*@
+                                                <input type="radio" id="RdoMale" name="Gender" class="form-radio" value="M" />Male
+                                                <input type="radio" id="RdoFemale" name="Gender" class="form-radio" value="F" />Female
+
                                                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -263,23 +313,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div class="col-6">
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>*@
+            
                                 </div>
                             </div>
                         </div>
