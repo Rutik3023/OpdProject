@@ -14,30 +14,25 @@ namespace ClinicManagementSystem.Api
         // GET: Clinic
         IClinic c;
         Mapper mp = null;
+
         public ClinicApiController(IClinic _c)
         {
             var config = new MapperConfiguration(u => u.CreateMap<VMClinic, tblClinic>().ReverseMap());
             mp = new Mapper(config);
 
             c = _c;
-
         }
 
 
         // GET: Api
-
-
         public JsonResult GetAllC(int pagno)
         {
             Reports rp = new Reports();
-            
+
             var obj = c.GetAll();
             var objt = c.GetAllPage(pagno);
-          
+
             List<VMClinic> list = mp.Map<List<VMClinic>>(objt);
-
-
-
 
             rp.pageno = pagno;
             rp.count = obj.Count();
@@ -64,23 +59,14 @@ namespace ClinicManagementSystem.Api
         public JsonResult Save(VMClinic obj)
         {
             obj.Mobile = "5451";
-          //  ModelState.Clear();
+            
             Reports rp = new Reports();
-
-
             tblClinic list = mp.Map<tblClinic>(obj);
-          
+            
+            var res = c.Save(list);
 
-             var res=  c.Save(list);
-
-
-          
             rp.Code = 0;
-               rp.Message = res;
-
-
-
-
+            rp.Message = res;
 
             return Json(rp, JsonRequestBehavior.AllowGet);
         }
@@ -89,23 +75,22 @@ namespace ClinicManagementSystem.Api
         {
             Reports rp = new Reports();
             var obj = c.Delete(id);
-            if (obj==true)
+            if (obj == true)
             {
                 rp.Code = 0;
                 rp.Message = "Deleated  Sucusessfully";
             }
 
-
-
             return Json(rp, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult GetAll(string key)
         {
             Reports rp = new Reports();
 
-            var obj=  c.GetAllkey( key);
+            var obj = c.GetAllkey(key);
 
-            if (obj!=null)
+            if (obj != null)
             {
                 rp.Code = 0;
                 rp.Message = obj;
@@ -114,8 +99,6 @@ namespace ClinicManagementSystem.Api
             return Json(rp, JsonRequestBehavior.AllowGet);
 
         }
-
-
 
     }
 }

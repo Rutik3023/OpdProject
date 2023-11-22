@@ -12,14 +12,11 @@ namespace ClinicManagementSystem.Iservises
 
         tblStaff Findbyid(int id);
 
-
-
         string Save(tblStaff obj);
 
         bool Delete(int id);
 
         dynamic GetAllkey(string key);
-
 
         dynamic GetAllPage(int pagno);
 

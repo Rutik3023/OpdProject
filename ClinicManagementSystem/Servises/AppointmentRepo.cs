@@ -56,10 +56,8 @@ namespace ClinicManagementSystem.Servises
             }
             catch (Exception er)
             {
-
                 return "Error"+er.Message;
             }
-            
         }
 
         public tblAppointment FindById(int id)
@@ -99,7 +97,6 @@ namespace ClinicManagementSystem.Servises
             }
             catch (Exception)
             {
-
                 return null;
             }
             return null;

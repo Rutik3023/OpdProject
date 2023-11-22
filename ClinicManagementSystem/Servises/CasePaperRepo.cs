@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ClinicManagementSystem.Servises
 {
-    public class CasePaperRepo:ICasePaper
+    public class CasePaperRepo : ICasePaper
     {
         HospitalDBEntities db = new HospitalDBEntities();
 
@@ -17,13 +17,11 @@ namespace ClinicManagementSystem.Servises
             return obj;
         }
 
-        
-
         public string Save(tblCasePaper obj)
         {
             try
             {
-                if (obj.Id==0)
+                if (obj.Id == 0)
                 {
                     tblCasePaper List = new tblCasePaper();
 
@@ -63,10 +61,8 @@ namespace ClinicManagementSystem.Servises
             }
             catch (Exception er)
             {
-
-                return "Error"+er.Message;
+                return "Error" + er.Message;
             }
-            
         }
 
         public tblCasePaper FindById(int id)
@@ -80,7 +76,7 @@ namespace ClinicManagementSystem.Servises
         {
             var obj = db.tblCasePapers.Find(id);
 
-            if (obj!=null)
+            if (obj != null)
             {
                 db.tblCasePapers.Remove(obj);
                 db.SaveChanges();
@@ -95,7 +91,6 @@ namespace ClinicManagementSystem.Servises
             {
                 dynamic List = db.tblCasePapers.Select(s => new
                 {
-
                     s.Id,
                     s.Pid,
                     s.Createdon,
@@ -113,7 +108,6 @@ namespace ClinicManagementSystem.Servises
             }
             catch (Exception er)
             {
-
                 return null;
             }
 

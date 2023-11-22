@@ -10,12 +10,12 @@ namespace ClinicManagementSystem.Iservises
         List<tblClinic> GetAll();
 
         tblClinic Findbyid(int id);
-         string Save(tblClinic obj);
+        
+        string Save(tblClinic obj);
 
         bool Delete(int id);
 
         dynamic GetAllkey( string key);
-
 
         dynamic GetAllPage(int pagno);
 

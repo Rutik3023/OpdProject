@@ -17,7 +17,6 @@ namespace ClinicManagementSystem.Iservises
 
         dynamic GetAllKey(string key);
 
-
         dynamic GetAllPage(int Pageno);
     }
 }
