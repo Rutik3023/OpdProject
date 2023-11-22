@@ -59,9 +59,10 @@
                 success: function (data) {
 
                     alert(data.Message);
+                    
                     Loaddata(0);
                     $("#PatientModal").hide();
-
+                    Clear();
                 },
                 error: function (err) { console.log(err); }
             });
@@ -196,7 +197,14 @@
 
         }
 
-    
+    function Clear()
+    {
+        $("#Name").val("");
+        $("#Adharno").val("");
+        $("#Address").val("");
+        $("#MobileNo").val("");
+        $("#Emailid").val("");
+    }
 
 
 
