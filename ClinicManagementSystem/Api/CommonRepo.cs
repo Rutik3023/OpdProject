@@ -99,5 +99,29 @@ namespace ClinicManagementSystem.Api
 
             return list;
         }
+
+        public static List<SelectListItem> Patient()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            using (var ctx = new HospitalDBEntities())
+            {
+                var tlist = ctx.tblPatients.Select(s => new { s.Id, s.Name }).ToList();
+
+                foreach (var item in tlist)
+                {
+                    SelectListItem o = new SelectListItem();
+                    o.Text = item.Name;
+                    o.Value = item.Id.ToString();
+                    list.Add(o);
+
+                }
+
+
+            }
+
+            return list;
+
+        }
     }
 }

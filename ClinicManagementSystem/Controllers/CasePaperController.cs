@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicManagementSystem.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace ClinicManagementSystem.Controllers
         // GET: CasePaper
         public ActionResult Index()
         {
+            ViewBag.Patient = CommonRepo.Patient();
             TempData["count"] = db.tblCasePapers.Count();
             return View();
         }

@@ -10,7 +10,7 @@ namespace ClinicManagementSystem.Models
         public int Id { get; set; }
         public int PId { get; set; }
         public string Height { get; set; }
-        public string Weight { get; set; }
+        public string Wight { get; set; }
         public string BP { get; set; }
         public string HealthIssue { get; set; }
         public int CasepaperFee { get; set; }

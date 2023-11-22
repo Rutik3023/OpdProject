@@ -16,7 +16,7 @@ namespace ClinicManagementSystem.Api
         Mapper mp = null;
         public CasePaperApiController(ICasePaper _c)
         {
-            var config = new MapperConfiguration(u => u.CreateMap<VMCasePaper, tblAppointment>().ReverseMap());
+            var config = new MapperConfiguration(u => u.CreateMap<VMCasePaper, tblCasePaper>().ReverseMap());
             mp = new Mapper(config);
 
             c = _c;
@@ -61,7 +61,7 @@ namespace ClinicManagementSystem.Api
         }
 
         [HttpPost]
-        public JsonResult Save(VMAppointment obj)
+        public JsonResult Save(VMCasePaper obj)
         {
             Reports rp = new Reports();
 
