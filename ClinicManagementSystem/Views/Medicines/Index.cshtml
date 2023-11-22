@@ -1,0 +1,137 @@
+﻿@model ClinicManagementSystem.Models.VMMedicine
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $("#OpenModal").click(function () {
+            $("#MedicineModal").show();
+        });
+
+        $("[data-bs-dismiss='modal']").click(function () {
+            $("#MedicineModal").hide();
+        });
+
+        $("#Save").click(function () {
+            if ($("#Name").val().trim() == "") {
+                $("[data-valmsg-for='Company']").text("Name is mandory");
+                //alert("Name is mandory");
+            }
+        });
+    });
+</script>
+
+
+<div class="modal" id="MedicineModal" tabindex="-1" style="background: #00000014;">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width:70vw">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Medicine Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @id = "NameErr" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.TextAreaFor(model => model.MContent, new { @class = "form-control", @rows = "3" })
+                                                @Html.ValidationMessageFor(model => model.MContent, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="col-md-offset-2 col-md-12 text-end">
+                                <input type="button" id="Save" value="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Save changes</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div class="MedicinePage px-4 py-3 border-top">
+    <div class="row">
+        <div class="col-9">
+            <div class="input-group">
+                <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
+                <input type="text" id="txtSearch" class="form-control" placeholder="Search medicine by  name and email....">
+            </div>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+            <button class="btn btn-sm d-flex align-items-center text-white" style="background: #00acb1;" id="OpenModal"><i class='bx bx-plus fs-5'></i> Add new Medicine</button>
+        </div>
+    </div>
+    <hr />
+    <div class="AllMedicineData overflow-auto mt-2 bg-secondary p-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Medicine Name</th>
+                    <th>Content</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody id="Medicineload">
+                <tr>
+                    <td>
+                        <div class="btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-show m-0'></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
+                        </div>
+                    </td>
+                    <td>Id</td>
+                    <td>Medicine Name</td>
+                    <td>Content</td>
+                    <td>Company</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
