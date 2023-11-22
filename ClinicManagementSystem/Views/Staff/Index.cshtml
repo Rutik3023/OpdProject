@@ -85,6 +85,8 @@
 
                     alert(data.Message);
                     Loaddata(0);
+                    Clear()
+
                     $("#StaffModal").hide();
 
                 },
@@ -198,6 +200,20 @@
 
     }
 
+    function Clear()
+    {
+        $("#Id").val("");
+        $("#Role").val("");
+        $("#Name").val("");
+        $("#Mobile").val("");
+        $("#UserName").val("");
+        $("#Password").val("");
+        $("#Address").val("");
+        $("#Email").val("");
+
+        $("#RdoFemale").prop("checked", false);
+        $("#RdoMale").prop("checked", false);
+    }
 
 </script>
 
