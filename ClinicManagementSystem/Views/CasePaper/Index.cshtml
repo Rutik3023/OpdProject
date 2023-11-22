@@ -49,6 +49,7 @@
 
                     alert(data.Message);
                     Loaddata(0);
+                    Clear();
                     $("#CasepaperModal").hide();
 
                 },
@@ -182,6 +183,17 @@
         });
     }
 
+    function Clear()
+    {
+             $("#Id").val(""),
+             $("#PId").val(""),
+             $("#Height").val(""),
+             $("#Wight").val(""),
+             $("#BP").val(""),
+             $("#CasepaperFee").val(""),
+             $("#HealthIssue").val(""),
+             $("#Createdon").val("")
+    }
 
 </script>
 
