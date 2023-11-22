@@ -17,6 +17,44 @@
         });
     });
 
+    function Loaddata(pagno) {
+
+        $.ajax({
+
+            "url": "/StaffApi/GetAllC?pagno=" + pagno,
+            "method": "get",
+            success: function (Data) {
+
+
+                // console.log(Data);
+                $("#Staffload").empty();
+                $.each(Data.Message, function (index, item) {
+                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                    previous = Data.pageno - 1;
+                    Next = Data.pageno + 1;
+                    if (previous == -1) {
+                        previous = 0;
+                    }
+                    console.log(Data.Message);
+                    var next = Data.pageno + 1;
+                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+
+                })
+            },
+            error: function (error) {
+
+                console.log(error);
+
+            }
+
+
+        });
+
+
+    }
+
+
+
 </script>
 
 <div class="modal" id="AppointmentModal" tabindex="-1" style="background: #00000014;">
@@ -73,42 +111,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.BP, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.BP, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.BP, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.HealthIssue, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.TextAreaFor(model => model.HealthIssue, new { @class = "form-control", @rows = "2" })
-                                                @Html.ValidationMessageFor(model => model.HealthIssue, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="col-6">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -119,30 +122,13 @@
                                         </div>
                                     </div>
 
-                                    @*<div class="col-6">
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>*@
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group mt-3">
                             <div class="col-md-offset-2 col-md-12 text-end">
-                                <input type="submit" value="Create" class="btn btn-success" />
+                                <input type="button" value="Save" class="btn btn-success" />
                             </div>
                         </div>
                     </div>
@@ -172,17 +158,15 @@
     <hr />
     <div class="AllAppointmentData overflow-auto mt-2 bg-secondary p-3" style="max-height:90vh;">
         <table class="table table-bordered">
-            <thead>
+            <thead id="Appoymentlist">
                 <tr>
                     <th>#</th>
                     <th>Id</th>
                     <th>Patient Name</th>
-                    <th>Height</th>
-                    <th>Weight</th>
-                    <th>BP</th>
-                    <th>Health Issue</th>
-                    <th>Created On</th>
+                    <th>AppointmentDate</th>
                     <th>Status</th>
+
+
                 </tr>
             </thead>
             <tbody>
@@ -198,10 +182,7 @@
                     <td>Patient Name</td>
                     <td>Height</td>
                     <td>Weight</td>
-                    <td>BP</td>
-                    <td>Health Issue</td>
-                    <td>Created On</td>
-                    <td>Status</td>
+                    
                 </tr>
             </tbody>
         </table>
