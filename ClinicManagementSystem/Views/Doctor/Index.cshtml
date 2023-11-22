@@ -17,7 +17,7 @@
             $("#DoctorModal").hide();
         });
         $("#upload").change(function () {
-            
+
                 var formData = new FormData();
             var totalFiles = document.getElementById("upload").files.length;
                 for (var i = 0; i < totalFiles; i++) {
@@ -32,10 +32,10 @@
                     contentType: false,
                     processData: false,
                     success: function(response) {
-                        
+
                     },
                     error: function(error) {
-                       
+
                     }
                 //}).done(function () {
                 //    alert('success');
@@ -52,18 +52,75 @@
 
 
         $("#Save").click(function () {
-
+            //debugger;
             //validation....
+            if ($("#ClinicId").val().trim()==null) {
+                alert("Clinic name is required");
+                return;
+            }
+
+            if ($("#Name").val().trim() == "") {
+                $("[data-valmsg-for='Name']").text("Name is required");
+                return;
+            }
+
+            if ($("#Address").val().trim() == "") {
+                $("[data-valmsg-for='Address']").text("Address is required");
+                return;
+            }
+
+            if ($("#Mobile").val().trim() == "") {
+                $("[data-valmsg-for='Mobile']").text("Mobile is required");
+                return;
+            }
+
+            if ($("#Email").val().trim() == "") {
+                $("[data-valmsg-for='Email']").text("Email is required");
+                return;
+            }
+            @*var emailReg = @/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+            if (!emailReg.test($("#Email").val().trim())) {
+                $("[data-valmsg-for='Email']").text("Email is required");
+                return;
+            }*@
+            if ($("#Specilization").val().trim() == "") {
+                $("[data-valmsg-for='Specilization']").text("Specilization is required");
+                return;
+            }
+
+            if ($("#Qulification").val().trim() == "") {
+                $("[data-valmsg-for='Qulification']").text("Qulification is required");
+                return;
+            }
+
+            if ($("#Role").val().trim() == "") {
+                $("[data-valmsg-for='Role']").text("Role is required");
+                return;
+            }
+
+            if ($("#UserName").val().trim() == "") {
+                $("[data-valmsg-for='UserName']").text("UserName is required");
+                return;
+            }
+
+            if ($("#Password").val().trim() == "") {
+                $("[data-valmsg-for='Password']").text("Password is required");
+                return;
+            }
+
+
+
+
             var gender = "";
             if ($("#RdoMale").prop("checked")) {
-             
+
                 gender = "M";
-              
+
             }
             if ($("#RdoFemale").prop("checked")) {
-              
+
                 gender = "F";
-               
+
             }
             // save to db
             console.log(gender);
@@ -282,7 +339,7 @@
                                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
                                                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger"})
                                             </div>
                                         </div>
                                     </div>
