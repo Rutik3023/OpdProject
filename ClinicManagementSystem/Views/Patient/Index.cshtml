@@ -21,16 +21,18 @@
         $("#save").click(function () {
 
             //validation....
-            //var gender = "";
-            //if ($("#RodMale").prop("checked")) {
-            //    gender = "M";
+            var gender = "";
+            if ($("#RdoMale").prop("checked")) {
+               
+                gender = "M";
 
-            //}
-            //else {
+            }
+            if ($("#RdoFemale").prop("checked")) {
+              
+                gender = "F";
 
-            //    gender = "F";
-
-            //}
+            }
+           
             // save to db
 
             var obj = {
@@ -38,11 +40,11 @@
 
                 "Name": $("#Name").val(),
                 "Address": $("#Address").val(),
-                "MobileNo": $("#Mobile").val(),
-                "Email": $("#Email").val(),
-                "Gender": $("#Gender").val(),
-
-                "AdhaarNo": $("#AdhaarNo").val(),
+                "MobileNo": $("#MobileNo").val(),
+                "Emailid": $("#Emailid").val(),
+                "Gender": gender,
+                
+                "Adharno": $("#Adharno").val(),
                 "BloodGroupId": $("#BloodGroupId").val(),
 
                 "Photo": $("#Photo").val()
@@ -64,6 +66,32 @@
                 error: function (err) { console.log(err); }
             });
         });
+
+        $("#txtSearch").keyup(function () {
+            $.ajax(
+                {
+                    "url": "/PatientApi/GetAll?key=" + $("#txtSearch").val(),
+                    "method": "get",
+                    success: function (data) {
+                      
+                        if (data.Code == 0)
+                        {
+                            console.log(data);
+                            $("#loadPatient").empty();
+                           
+                            $.each(data.Message, function (index, item) {
+                                var myDate = new Date(item.Createdon.match(/\d+/)[0] * 1);
+                                console.log($("#loadPatient").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button'class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button'onclick='Edit(" + item.Id + ")' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button'onclick='Delete(" + item.Id + ")'  class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Emailid + "</td><td>" + item.MobileNo + "</td><td>" + item.Address + "</td><td>" + item.Adharno + "</td><td>" + item.BloodGroupId + "</td><td>" + item.Gender + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>"));
+                            });
+                        }
+                    },
+                    error: function (message) {
+                        console.log(message);
+                    }
+                }
+            );
+        });
+
     });
     function Loaddata(pagno) {
 
@@ -77,7 +105,9 @@
                 //console.log(Data);
                 $("#loadPatient").empty();
                 $.each(Data.Message, function (index, item) {
-                    var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
+                 
+
+                    var myDate = new Date(item.Createdon.match(/\d+/)[0] * 1);
                     previous = Data.pageno - 1;
                     Next = Data.pageno + 1;
                     if (previous == -1) {
@@ -86,7 +116,7 @@
                    
                     console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#loadPatient").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button'class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button'onclick='Edit(" + item.Id + ")' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button'onclick='Delete(" + item.Id + ")'  class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.MobileNo + "</td><td>" + item.Address + "</td><td>" + item.AdhaarNo + "</td><td>" + item.BloodGroupId + "</td><td>" + item.Gender + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                    $("#loadPatient").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button'class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button'onclick='Edit(" + item.Id + ")' class='btn btn-sm btn- outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button'onclick='Delete(" + item.Id + ")'  class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Emailid + "</td><td>" + item.MobileNo + "</td><td>" + item.Address + "</td><td>" + item.Adharno + "</td><td>" + item.BloodGroupId + "</td><td>" + item.Gender + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
                     /* $("#loadPatient").append("<tr><td> <div class='btn-group-sm' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-edit m-0'></i>Add Casepaper</button><button type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Email</td><td>Mobile No</td><td>Address</td><td>Adhaar No.</td><td>Blood Group</td> <td>Gender</td><td>Created On</td></tr>");*/
                 })
 
@@ -137,19 +167,19 @@
                         console.log(obj);
 
                         $("#Id").val(obj.Id);
-                        $("#AdhaarNo").val(obj.AdhaarNo);
+                        $("#Adharno").val(obj.Adharno);
                         $("#Name").val(obj.Name);
                         $("#Address").val(obj.Address);
                         $("#MobileNo").val(obj.MobileNo);
-                        $("#Email").val(obj.Email);
-                        ///*  $("#Gender").val(obj.Gender);*/
-                        //if (obj.Gender == "M") {
-                        //    $("#RdoMale").prop("checked", true);
-                        //}
-                        //else {
+                        $("#Emailid").val(obj.Emailid);
+                        /*  $("#Gender").val(obj.Gender);*/
+                        if (obj.Gender == "M") {
+                            $("#RdoMale").prop("checked", true);
+                        }
+                        if (obj.Gender == "F") {
 
-                        //    $("#RdoFemale").prop("checked", true);
-                        //}
+                            $("#RdoFemale").prop("checked", true);
+                        }
                         $("#BloodGroupId").val(obj.BloodGroupId);
                        
                         $("#Photo").val(obj.Photo);
@@ -204,10 +234,10 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.Emailid, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Emailid, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Emailid, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -233,18 +263,21 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.RadioButtonFor(model => model.Gender, "M", new { @class = "form-radio", @id = "rdoMale" }) Male
-                                                @Html.RadioButtonFor(model => model.Gender, "F", new { @class = "form-radio", @id = "rdoFemale" }) Female
+                                                @*@Html.RadioButtonFor(model => model.Gender, "M", new { @class = "form-radio", @id = "rdoMale" }) Male
+        @Html.RadioButtonFor(model => model.Gender, "F", new { @class = "form-radio", @id = "rdoFemale" }) Female*@
+                                                <input type="radio" id="RdoMale" name="Gender" class="form-radio" value="M" />Male
+                                                <input type="radio" id="RdoFemale" name="Gender" class="form-radio" value="F" />Female
+
                                                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.AdhaarNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.Adharno, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.AdhaarNo, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.AdhaarNo, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Adharno, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Adharno, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -258,23 +291,7 @@
                                         </div>
                                     </div>
 
-                                    @*<div class="col-6">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>*@
+                                
                                 </div>
                             </div>
                         </div>
@@ -301,7 +318,7 @@
         <div class="col-10">
             <div class="input-group">
                 <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
-                <input type="text" class="form-control" placeholder="Search patient by ID, name and email....">
+                <input type="text" class="form-control" id="txtSearch" placeholder="Search patient by  name and Address....">
             </div>
         </div>
         <div class="col-2">

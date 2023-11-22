@@ -90,7 +90,7 @@ namespace ClinicManagementSystem.Servises
         }
 
         public dynamic GetAllKey(string key)
-        {
+       {
             try
             {
                 dynamic List = db.tblPatients.Select(s => new
@@ -106,8 +106,10 @@ namespace ClinicManagementSystem.Servises
                     s.bloodgroupid,
                     s.Gender
 
-                }).Where(w => w.Name.Contains(key) || w.Address.Contains(key))
+                }).Where(w => w.Name.Contains(key))
                    .ToList();
+
+                return List;
             }
             catch (Exception er)
             {

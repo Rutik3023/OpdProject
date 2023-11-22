@@ -9,14 +9,14 @@ namespace ClinicManagementSystem.Models
     {
         public int Id { get; set; }
         public String Name { get; set; }
-        public string Email { get; set; }
+        public string Emailid { get; set; }
         public string MobileNo { get; set; }
         public string Address { get; set; }
-        public string AdhaarNo { get; set; }
+        public string Adharno { get; set; }
         public int BloodGroupId { get; set; }
         public char Gender { get; set; }
         public string Photo { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime Createdon { get; set; }
         public int CreatedBy { get; set; }
     }
 }

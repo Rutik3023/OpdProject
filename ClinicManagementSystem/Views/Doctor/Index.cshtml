@@ -55,17 +55,18 @@
 
             //validation....
             var gender = "";
-            if ($("#RodMale").prop("checked")) {
+            if ($("#RdoMale").prop("checked")) {
+             
                 gender = "M";
-
+              
             }
-            else {
-
+            if ($("#RdoFemale").prop("checked")) {
+              
                 gender = "F";
-
+               
             }
             // save to db
-
+            console.log(gender);
             var obj = {
                 "Id": $("#Id").val(),
                 "ClinicId": $("#ClinicId").val(),
@@ -82,7 +83,7 @@
                 "UserName": $("#UserName").val(),
                 "Password": $("#Password").val()
             };
-            //  console.log(JSON.stringify(obj));
+              console.log(JSON.stringify(obj));
             $.ajax({
                 "url": "/DoctorApi/Save",
                 "method": "post",
@@ -178,7 +179,8 @@
                     if (obj.Gender == "M") {
                         $("#RdoMale").prop("checked", true);
                     }
-                    else {
+                    if (obj.Gender == "F")
+                    {
 
                         $("#RdoFemale").prop("checked", true);
                     }
