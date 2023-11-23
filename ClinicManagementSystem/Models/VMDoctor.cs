@@ -9,7 +9,7 @@ namespace ClinicManagementSystem.Models
     public class VMDoctor
     {
         public int Id { get; set; }
-
+        
         [Required]
         public int ClinicId { get; set; }
 

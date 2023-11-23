@@ -15,7 +15,7 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#AppointmentModal").hide();
         });
-
+        Loaddata(0);
 
         $("#PId").change(function () {
 
@@ -24,10 +24,10 @@
                 "url": "/AppointmentApi/Loadcasid?id=" + $("#PId").val() ,
                 "method": "get",
                 success: function (Data) {
-                    $("#CasepaperId").val("");
+                    $("#Cid").val("");
                     if (Data.Code==0) {
                         var obj = Data.Message;
-                        $("#CasepaperId").val(obj.Id);
+                        $("#Cid").val(obj.Id);
                     }
                    
                  
@@ -40,6 +40,43 @@
 
 
             });
+
+            $("#save").click(function () {
+                alert();
+                //validation....
+              
+                // save to db
+
+                var obj = {
+                    "Id": $("#Id").val(),
+                    "DrId": $("#DrId").val(),
+                    "Date": $("#Date").val(),
+                    "Cid": $("#Cid").val(),
+                    "Stastus": $("#Stastus").val(),
+                   
+                };
+                //  console.log(JSON.stringify(obj));
+                $.ajax({
+                    "url": "/AppointmentApi/Save",
+                    "method": "post",
+                    "contentType": "application/json",
+                    "data": JSON.stringify(obj),
+
+                    success: function (data) {
+
+                        alert(data.Message);
+                        Loaddata(0);
+                      
+
+                        $("#AppointmentModal").hide();
+
+                    },
+                    error: function (err) { console.log(err); }
+                });
+
+
+            });
+
 
             
 
@@ -60,9 +97,9 @@
 
 
                 // console.log(Data);
-                $("#Staffload").empty();
+                $("#Appoyment").empty();
                 $.each(Data.Message, function (index, item) {
-                    var myDate = new Date(item.AppointmentDate.match(/\d+/)[0] * 1);
+                    var myDate = new Date(item.Date.match(/\d+/)[0] * 1);
                     previous = Data.pageno - 1;
                     Next = Data.pageno + 1;
                     if (previous == -1) {
@@ -70,7 +107,7 @@
                     }
                     console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#Appoyment").append("<tr><td><div class='btn - group - sm' role='group' aria-label='Basic example'><button type='button' class='btn btn - sm btn - outline - warning'><i class='bx bxs-edit m-0'></i>Select</button> <button type='button' class='btn btn - sm btn - outline - primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn - sm btn - outline - danger'><i class='bx bx-trash'></i></button></div></td><td>Id</td><td>Patient Name</td><td>Height</td><td>Weight</td></tr>")
+                    $("#Appoyment").append("<tr><td><div class='btn - group - sm' role='group' aria-label='Basic example'><button type='button' class='btn btn - sm btn - outline - warning'><i class='bx bxs-edit m-0'></i>Select</button> <button type='button'onclick='Edit(" + item.Id + ")'    class='btn btn - sm btn - outline - primary'><i class='bx bxs-edit m-0'></i></button><button type='button'onclick='Delete(" + item.Id + ")' class='btn btn - sm btn - outline - danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Cid + "</td><td>" + myDate.toLocaleDateString() + "</td><td>" + item.Stastus + "</td></tr>")
 
 
 
@@ -89,7 +126,54 @@
 
     }
 
+    function Edit(id) {
+        $.ajax({
+            "url": "/AppointmentApi/FindByid?id=" + id,
+            "method": "get",
+            success: function (rep) {
 
+                if (rep.Code == 0) {
+
+                    var obj = rep.Message;
+                    var myDate = new Date(obj.Date.match(/\d+/)[0] * 1);
+                    $("#Id").val(obj.Id);
+                    $("#Cid").val(obj.Cid);
+                    $("#Date").val(myDate.setDate());
+                    $("#Stastus").val(obj.Stastus);
+                    $("#DrId").val(obj.DrId);
+                   
+
+                    $("#AppointmentModal").show();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+      
+
+    }
+
+    function Delete(id) {
+        if (confirm("Are you sure?")) {
+
+            $.ajax({
+                "url": "/AppointmentApi/Delete?id=" + id,
+                "method": "get",
+                success: function (rep) {
+
+                    if (rep.Code == 0) {
+                        alert(rep.Message);
+                        Loaddata(0);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        }
+    }
 
 </script>
 
@@ -112,29 +196,30 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-12">
+                                        @Html.HiddenFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.DrId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.DropDownListFor(model => model.DoctorId, (IEnumerable<SelectListItem>)ViewBag.Dr, new { @class = "form-control" } )
-                                                @Html.ValidationMessageFor(model => model.DoctorId, "", new { @class = "text-danger" })
+                                                @Html.DropDownListFor(model => model.DrId, (IEnumerable<SelectListItem>)ViewBag.Dr, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.DrId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.AppointmentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.AppointmentDate, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-3">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.CasepaperId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.Cid, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.CasepaperId, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.CasepaperId, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Cid, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Cid, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -150,10 +235,10 @@
                                    
                                     <div class="col-6">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.Stastus, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.Stastus, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Stastus, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +249,7 @@
 
                         <div class="form-group mt-3">
                             <div class="col-md-offset-2 col-md-12 text-end">
-                                <input type="button" value="Save" class="btn btn-success" />
+                                <input type="button" id="save" value="Save" class="btn btn-success" />
                             </div>
                         </div>
                     </div>
@@ -198,7 +283,7 @@
                 <tr>
                     <th>#</th>
                     <th>Id</th>
-                    <th>Patient Name</th>
+                    <th>CaspaperId</th>
                     <th>AppointmentDate</th>
                     <th>Status</th>
 

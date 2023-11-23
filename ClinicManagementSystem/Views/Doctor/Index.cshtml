@@ -152,6 +152,7 @@
                     alert(data.Message);
                     Loaddata(0);
                     Clear();
+                   
 
                     $("#DoctorModal").hide();
 
@@ -304,21 +305,28 @@
 
     function Clear()
     {
-        $("#Id").val("");
-        $("#ClinicId").val("");
-        $("#Name").val("");
-        $("#Address").val("");
-        $("#Mobile").val("");
-        $("#Email").val("");
-        $("#Specilization").val("");
-        $("#Qulification").val("");
-        $("#Role").val("");
-        $("#Photo").val("");
-        $("#UserName").val("");
-        $("#Password").val("");
-        $("#RdoFemale").prop("checked", false);
-        $("#RdoMale").prop("checked", false);
+
+        $("#DoctorModal input").val("");
+
+        $("#DoctorModal textarea").val("");
+        $("select option:first").prop("selected",true);
+        //$("#Id").val("");
+        //$("#ClinicId").val("");
+        //$("#Name").val("");
+        //$("#Address").val("");
+        //$("#Mobile").val("");
+        //$("#Email").val("");
+        //$("#Specilization").val("");
+        //$("#Qulification").val("");
+        //$("#Role").val("");
+        //$("#Photo").val(null);
+        //$("#UserName").val("");
+        //$("#Password").val("");
+        //$("#RdoFemale").prop("checked", false);
+        //$("#RdoMale").prop("checked", false);
     }
+
+
 
 </script>
 
@@ -473,7 +481,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12 text-end">
-                                <input type="button" id="Save" value="Save" class="btn btn-success" />
+                                <button type="button" id="Save"  class="btn btn-success">Save</button>  
                             </div>
                         </div>
                     </div>

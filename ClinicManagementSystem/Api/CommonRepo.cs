@@ -8,6 +8,7 @@ namespace ClinicManagementSystem.Api
 {
     public static class CommonRepo
     {
+        public static dynamic Photos { get; set; }
         public static List<SelectListItem> Clinic()
         {
             List<SelectListItem> list = new List<SelectListItem>();

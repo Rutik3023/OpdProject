@@ -3,23 +3,20 @@ using ClinicManagementSystem.Iservises;
 using ClinicManagementSystem.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace ClinicManagementSystem.Api
 {
-    public class DoctorApiController : Controller
+    public class MedicineApiController : Controller
     {
-
-        // GET: DoctorApi
-        // GET: Clinic
-        IDoctor c;
+        // GET: AppointmentApi
+       IMedicine  c;
         Mapper mp = null;
-        public DoctorApiController(IDoctor _c)
+        public MedicineApiController(IMedicine _c)
         {
-            var config = new MapperConfiguration(u => u.CreateMap<VMDoctor, tblDoctor>().ReverseMap());
+            var config = new MapperConfiguration(u => u.CreateMap<VMMedicine, tblMedicine>().ReverseMap());
             mp = new Mapper(config);
 
             c = _c;
@@ -37,7 +34,7 @@ namespace ClinicManagementSystem.Api
             var obj = c.GetAll();
             var objt = c.GetAllPage(pagno);
 
-            List<VMDoctor> list = mp.Map<List<VMDoctor>>(objt);
+            List<VMMedicine> list = mp.Map<List<VMMedicine>>(objt);
 
 
 
@@ -55,8 +52,8 @@ namespace ClinicManagementSystem.Api
         {
             Reports rp = new Reports();
 
-            var obj = c.Findbyid(id);
-            VMDoctor list = mp.Map<VMDoctor>(obj);
+            var obj = c.FindById(id);
+            VMMedicine list = mp.Map<VMMedicine>(obj);
 
             rp.Code = 0;
             rp.Message = list;
@@ -64,16 +61,11 @@ namespace ClinicManagementSystem.Api
         }
 
         [HttpPost]
-        public JsonResult Save(VMDoctor obj)
+        public JsonResult Save(VMMedicine obj)
         {
             Reports rp = new Reports();
-            obj.Photo = CommonRepo.Photos;
-            CommonRepo.Photos = null;
 
-
-
-
-            tblDoctor list = mp.Map<tblDoctor>(obj);
+            tblMedicine list = mp.Map<tblMedicine>(obj);
             var res = c.Save(list);
 
 
@@ -104,39 +96,6 @@ namespace ClinicManagementSystem.Api
             return Json(rp, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public void Upload()
-        {
-            Reports rp = new Reports();
-            if (Request.Files.Count != 0)
-            {
-
-                for (int i = 0; i < Request.Files.Count; i++)
-                {
-                    var file = Request.Files[i];
-
-                    var fileName = Path.GetFileName(file.FileName);
-                    CommonRepo.Photos = file.FileName;
-                    var path = Path.Combine(Server.MapPath("~/DoctorPhoto/"), fileName);
-                    file.SaveAs(path);
-
-                    //string path = Server.MapPath("~/DoctorPhoto/");
-                    //file.SaveAs(path + file.FileName);
-
-
-
-
-
-
-                }
-
-            }
-
-        }
-
-
-
-
         public JsonResult Delete(int id)
         {
             Reports rp = new Reports();
@@ -144,7 +103,7 @@ namespace ClinicManagementSystem.Api
             if (obj == true)
             {
                 rp.Code = 0;
-                rp.Message = "Deleated  Sucusessfully";
+                rp.Message = "Deleted  Successfully";
             }
 
 
@@ -155,7 +114,7 @@ namespace ClinicManagementSystem.Api
         {
             Reports rp = new Reports();
 
-            var obj = c.GetAllkey(key);
+            var obj = c.GetAllKey(key);
 
             if (obj != null)
             {

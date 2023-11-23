@@ -110,9 +110,9 @@ namespace ClinicManagementSystem.Servises
         }
 
         public dynamic loadCasid(int id)
-        {
+         {
 
-            dynamic obj = db.tblCasePapers.Select(s=> new{s.Id,s.Pid }).Where(w => w.Pid == id).FirstOrDefault();
+            dynamic obj = db.tblCasePapers.OrderByDescending(s=>s.Id).Select(s=> new{s.Id,s.Pid }).Where(w => w.Pid == id).FirstOrDefault();
 
             return obj;
         }
