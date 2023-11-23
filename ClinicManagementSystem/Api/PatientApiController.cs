@@ -35,7 +35,7 @@ namespace ClinicManagementSystem.Api
             var obj = c.GetAll();
             var objt = c.GetAllPage(pagno);
 
-            List<VMPatient> list = mp.Map<List<VMPatient>>(objt);
+            //List<VMPatient> list = mp.Map<List<VMPatient>>(objt);
 
 
 
@@ -43,7 +43,7 @@ namespace ClinicManagementSystem.Api
             rp.pageno = pagno;
             rp.count = obj.Count();
             rp.Code = 0;
-            rp.Message = list;
+            rp.Message = objt;
 
             return Json(rp, JsonRequestBehavior.AllowGet);
         }

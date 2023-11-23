@@ -1,6 +1,7 @@
 ﻿using ClinicManagementSystem.Iservises;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -45,7 +46,7 @@ namespace ClinicManagementSystem.Servises
             try
             {
                 dynamic list = db.tblDoctors
-                    .Select(s => new
+                    .Include(s=>s.tblRole).Select(s => new
                     {
                         s.Id,
                         s.Name,
@@ -55,7 +56,7 @@ namespace ClinicManagementSystem.Servises
                         s.Qulification,
                         s.Specilization,
                         s.Gender,
-                        Role = s.Role,
+                        Roles = s.tblRole.Role,
                         s.UserName,
                         s.Password,
                         s.Photo,
@@ -79,7 +80,7 @@ namespace ClinicManagementSystem.Servises
 
         public dynamic GetAllPage(int pagno)
         {
-            dynamic obj = db.tblDoctors.OrderByDescending(o => o.Id).Skip(8 * pagno).Take(8).ToList();
+            dynamic obj = db.tblDoctors.Include(s=>s.tblRole).Select(s=>new {s.Name,s.Id,s.Address,s.Email,s.Mobile,s.Qulification,s.Specilization,s.Gender,s.UserName,s.Password,s.CreatedOn ,Roles= s.tblRole.Role }).OrderByDescending(o => o.Id).Skip(8 * pagno).Take(8).ToList();
             return obj;
         }
 
