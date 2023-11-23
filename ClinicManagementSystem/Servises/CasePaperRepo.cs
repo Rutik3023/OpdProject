@@ -86,7 +86,7 @@ namespace ClinicManagementSystem.Servises
         }
 
         public dynamic GetAllKey(string key)
-        {
+       {
             try
             {
                 dynamic List = db.tblCasePapers.Select(s => new

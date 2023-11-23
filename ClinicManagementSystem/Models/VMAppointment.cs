@@ -12,8 +12,7 @@ namespace ClinicManagementSystem.Models
         public int DrId { get; set; }
         public int Cid { get; set; }
         public int Stastus { get; set; }
-        [DataType(DataType.Date)]
-[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}{1:HH/mm}", ApplyFormatInEditMode = true)]
+   
         public DateTime Date { get; set; }
     
        

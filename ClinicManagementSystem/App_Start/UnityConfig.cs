@@ -21,6 +21,7 @@ namespace ClinicManagementSystem
             container.RegisterType<IPatient, PatientRepo>();
             container.RegisterType<ICasePaper, CasePaperRepo>();
             container.RegisterType<IAppointment, AppointmentRepo>();
+            container.RegisterType<IMedicine, MedicineRepo>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
