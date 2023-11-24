@@ -185,7 +185,7 @@
                             $.each(data.Message, function (index, item) {
                                
                                 var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
-                                $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Roles + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                                $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Roles + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
                             });
                         }
                     },
@@ -298,10 +298,10 @@
                     }
                     // console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Roles + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                    $("#Doctorload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Qulification + "</td><td>" + item.Specilization + "</td><td>" + item.Gender + "</td><td>" + item.Roles + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
 
                 })
-            },
+            },                                                                                                                                                                                                                                                                                                                                                                                                 
             error: function (error) {
 
                 console.log(error);
@@ -511,7 +511,7 @@
     <div class="row">
         <div class="col-10">
             <div class="input-group">
-                <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
+                <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="text" id="txtSearch" class="form-control" placeholder="Search doctor by  name and email....">
             </div>
         </div>
