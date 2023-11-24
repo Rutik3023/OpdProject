@@ -22,7 +22,7 @@
 
 
 <div class="modal" id="PrescriptionModal" tabindex="-1" style="background: #00000014;">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width:70vw">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" style="width:70vw">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Prescription Form</h5>
@@ -39,8 +39,10 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
+                                    <label class="fw-bold mb-2">Patient Detail's'</label>
+                                    <hr />
                                     <div class="col-3">
-                                        @Html.HiddenFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.HiddenFor(model => model.AId, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.AId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -49,105 +51,124 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-3">
+                                        @Html.HiddenFor(model => model.CId, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.Stastus, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            @Html.LabelFor(model => model.CId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Stastus, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.Stastus, "", new { @class = "text-danger" })
+                                                @Html.EditorFor(model => model.CId, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.AId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mb-2">
-                                        <div class="col-4">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.PId, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.PId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Symtams, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                        <div class="col-md-12">
+                                                            @Html.EditorFor(model => model.Symtams, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.Symtams, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Disiese, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                        <div class="col-md-12">
+                                                            @Html.EditorFor(model => model.Disiese, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.Disiese, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.Narration, htmlAttributes: new { @class = "control-label col-md-2" })
                                                 <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.Narration, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.TextAreaFor(model => model.Narration, new { @class = "form-control", @rows = "4" })
                                                     @Html.ValidationMessageFor(model => model.Narration, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-4">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Symtams, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.Symtams, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.Symtams, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-4">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Disiese, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.Disiese, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.Disiese, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
+                                    <label class="fw-bold mb-2">Medicine Detail's'</label>
                                     <hr />
-                                    <div class="col-5">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.MedicineId, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.MedicineId, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.MedicineId, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.QTY, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.QTY, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.QTY, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-5 d-flex align-items-center flex-wrap">
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <div class="checkbox d-flex align-items-center">
-                                                    @Html.EditorFor(model => model.MDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
-                                                    @Html.LabelFor(model => model.MDose, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    @Html.ValidationMessageFor(model => model.MDose, "", new { @class = "text-danger" })
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.MedicineId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.MedicineId, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.MedicineId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="form-group mx-3">
-                                            <div class="col-md-12">
-                                                <div class="checkbox d-flex align-items-center">
-                                                    @Html.EditorFor(model => model.AfDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
-                                                    @Html.LabelFor(model => model.AfDose, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    @Html.ValidationMessageFor(model => model.AfDose, "", new { @class = "text-danger" })
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.QTY, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.QTY, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.QTY, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <div class="checkbox d-flex align-items-center">
-                                                    @Html.EditorFor(model => model.NDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
-                                                    @Html.LabelFor(model => model.NDose, htmlAttributes: new { @class = "control-label col-md-2" })
-                                                    @Html.ValidationMessageFor(model => model.NDose, "", new { @class = "text-danger" })
+                                        <div class="col-3 d-flex flex-wrap justify-content-center ">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="checkbox d-flex align-items-center">
+                                                        @Html.EditorFor(model => model.MDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.LabelFor(model => model.MDose, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                        @Html.ValidationMessageFor(model => model.MDose, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group mx-2">
+                                                <div class="col-md-12">
+                                                    <div class="checkbox d-flex align-items-center">
+                                                        @Html.EditorFor(model => model.AfDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.LabelFor(model => model.AfDose, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                        @Html.ValidationMessageFor(model => model.AfDose, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="checkbox d-flex align-items-center">
+                                                        @Html.EditorFor(model => model.NDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.LabelFor(model => model.NDose, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                        @Html.ValidationMessageFor(model => model.NDose, "", new { @class = "text-danger" })
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-12 text-end">
-                                        <button class="btn btn-dark">Add Medicine</button>
-                                    </div>
+                                        <div class="col-3">
+                                            <button class="btn btn-dark">Add Medicine</button>
+                                        </div>
 
+                                    </div>
                                     <div class="MedicineDiv border py-2 px-3 rounded-2 mt-4">
                                         <label class="form-label fw-bold">Medicine List</label>
                                         <div class="row m-0 bg-secondary">
@@ -223,19 +244,19 @@
             </thead>
             <tbody id="Prescription">
                 <tr>
-                        <td>
-                            <div class="btn-group-sm" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-sm btn-outline-warning" id="OpenModal"><i class="fa-solid fa-hand-pointer"></i> Select</button>
-                                <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-print"></i> Print</button>
-                                <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </td>
-                        <td>Id</td>
-                        <td>Appointment Id</td>
-                        <td>CreatedOn</td>
-                        <td>Narration</td>
-                        <td>Status</td>
-                    </tr>
+                    <td>
+                        <div class="btn-group-sm" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-sm btn-outline-warning" id="OpenModal"><i class="fa-solid fa-hand-pointer"></i> Select</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-print"></i> Print</button>
+                            <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </td>
+                    <td>Id</td>
+                    <td>Appointment Id</td>
+                    <td>CreatedOn</td>
+                    <td>Narration</td>
+                    <td>Status</td>
+                </tr>
             </tbody>
         </table>
     </div>

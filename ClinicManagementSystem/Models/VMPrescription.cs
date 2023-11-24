@@ -9,6 +9,8 @@ namespace ClinicManagementSystem.Models
     {
         public int Id { get; set; }
         public int AId { get; set; }
+        public int PId { get; set; }
+        public int CId { get; set; }
         public string Narration { get; set; }
         public DateTime Createdon { get; set; }
         public string Symtams { get; set; }
