@@ -103,7 +103,7 @@ namespace ClinicManagementSystem.Servises
                     s.Adharno,
                     s.Createdon,
                     s.Createdby,
-                    s.bloodgroupid,
+                    blood = s.tblBloodgroup.Name,
                     s.Gender
 
                 }).Where(w => w.Name.Contains(key))

@@ -104,7 +104,7 @@ namespace ClinicManagementSystem.Servises
 
         public dynamic GetAllPage(int pageno)
         {
-            dynamic obj = db.tblAppointments.OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
+            dynamic obj = db.tblAppointments.Select(s=>new {s.Id,s.Cid,s.Date,s.DrId,s.Stastus }).OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
 
             return obj;
         }

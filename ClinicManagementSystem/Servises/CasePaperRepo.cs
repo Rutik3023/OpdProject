@@ -92,7 +92,7 @@ namespace ClinicManagementSystem.Servises
                 dynamic List = db.tblCasePapers.Select(s => new
                 {
                     s.Id,
-                    s.Pid,
+                    Pid=  s.tblPatient.Name,
                     s.Createdon,
                     s.Createdby,
                     s.Height,
@@ -116,7 +116,19 @@ namespace ClinicManagementSystem.Servises
 
         public dynamic GetAllPage(int pageno)
         {
-            dynamic obj = db.tblCasePapers.OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
+            dynamic obj = db.tblCasePapers.Select(s => new
+            {
+                s.Id,
+                Pid = s.tblPatient.Name,
+                s.Createdon,
+                s.Createdby,
+                s.Height,
+                s.Wight,
+                s.BP,
+                s.CasePaperfee,
+                s.HealthIssue,
+
+            }).OrderByDescending(o => o.Id).Skip(8 * pageno).Take(8).ToList();
             return obj;
         }
     }

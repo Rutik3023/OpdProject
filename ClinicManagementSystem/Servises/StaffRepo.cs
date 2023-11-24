@@ -55,7 +55,8 @@ namespace ClinicManagementSystem.Servises
                         s.CreatedBy,
                         s.CreatedOn,
                         s.Role,
-                        
+                        s.Email
+
                     }).
                         Where(w => w.Name.Contains(key) || w.Address.Contains(key))
                     .ToList();
