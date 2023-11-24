@@ -7,7 +7,7 @@
 
 
 <script>
-
+    var cart=[];
     $(document).ready(function () {
         $("#OpenModal").click(function () {
             $("#PrescriptionModal").show();
@@ -16,8 +16,87 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#PrescriptionModal").hide();
         });
+
+        $("#PId").change(function () {
+            $.ajax({
+                "url": "/PrescriptionApi/Load?id=" + $("#PId").val() ,
+                "method": "get",
+                success: function (rep) {
+                    $("#CId").empty();
+                    if (rep.Code == 0) {
+                        
+                        var obj = rep.Message ;
+                        console.log()
+                        $("#CId").val(obj.Id);
+                        loadaid(obj.Id)
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+
+
+        });
+
+        $("#Addmedicine").click(function () {
+            if (true)
+            {
+                var obj = {
+
+                    "Srno": cart.length + 1,
+                    "MedicineId": $("#MedicineId").val(),
+                    "Medicinename": $("#MedicineId option:selected").text(),
+                    "QTY": $("#QTY").val(),
+                    "MDose": $("#MDose").val(),
+                    "AfDose": $("#AfDose").val(),
+                    "NDose": $("#NDose").val(),
+
+                }
+                
+            }
+            cart.push(obj);
+            loadcart();
+            console.log(cart);
+        });
+
+
     });
 
+    function loadaid (id) {
+        $.ajax({
+            "url": "/PrescriptionApi/Loadaid?id=" + id,
+            "method": "get",
+            success: function (rep) {
+                $("#AId").val(null);
+                if (rep.Code == 0) {
+
+                    var obj = rep.Message;
+                    console.log()
+                    $("#AId").val(obj.Id);
+
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+
+    }
+
+    function loadcart()
+    {
+        $("#CartItems").empty();
+        $.each( cart ,function (index,item) {
+
+            $("#CartItems").append("<tr><td><button type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></td><td>" + item.Srno + "</td><td>" + item.Medicinename + "</td><td>" + item.QTY + "</td><td>" + item.MDose + "</td><td>" + item.AfDose + "</td><td>" + item.NDose +"</td></tr>")
+        })
+
+    }
+
+    
 </script>
 
 
@@ -42,7 +121,7 @@
                                     <label class="fw-bold mb-2">Patient Detail's'</label>
                                     <hr />
                                     <div class="col-3">
-                                        @Html.HiddenFor(model => model.AId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.HiddenFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.AId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -53,7 +132,7 @@
                                     </div>
 
                                     <div class="col-3">
-                                        @Html.HiddenFor(model => model.CId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                     
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.CId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
@@ -67,7 +146,7 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.PId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.PId, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.DropDownListFor(model => model.PId,(IEnumerable<SelectListItem>)ViewBag.Patient, new { @class = "form-control" } )
                                                 @Html.ValidationMessageFor(model => model.PId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -116,7 +195,7 @@
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.MedicineId, htmlAttributes: new { @class = "control-label col-md-2" })
                                                 <div class="col-md-12">
-                                                    @Html.EditorFor(model => model.MedicineId, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.DropDownListFor(model => model.MedicineId, (IEnumerable<SelectListItem>)ViewBag.Medicine, new { @class = "form-control" } )
                                                     @Html.ValidationMessageFor(model => model.MedicineId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -165,7 +244,7 @@
                                         </div>
 
                                         <div class="col-3">
-                                            <button class="btn btn-dark">Add Medicine</button>
+                                            <button id="Addmedicine" type="button" class="btn btn-dark">Add Medicine</button>
                                         </div>
 
                                     </div>
@@ -176,19 +255,17 @@
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
+                                                            <th>#</th>
                                                             <th>SrNo.</th>
                                                             <th>Medicine Name</th>
                                                             <th>QTY</th>
-                                                            <th>Doses</th>
+                                                            <th>MDoses</th>
+                                                            <th>ADoses</th>
+                                                            <th>NDoses</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="CartItems">
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Crocine</td>
-                                                            <td>1</td>
-                                                            <td>M-A-N</td>
-                                                        </tr>
+                                                       
                                                     </tbody>
                                                 </table>
                                             </div>

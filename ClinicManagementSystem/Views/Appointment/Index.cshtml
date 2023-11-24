@@ -130,11 +130,11 @@
         $.ajax({
             "url": "/AppointmentApi/FindByid?id=" + id,
             "method": "get",
-            success: function (rep) {
-                console.log(rep);
+            success: function (Data) {
+                debugger;
                 if (rep.Code == 0) {
-
-                    var obj = rep.Message;
+                    
+                    var obj = Data.Message;
                     var myDate = new Date(obj.Date.match(/\d+/)[0] * 1);
                     $("#Id").val(obj.Id);
                     $("#Cid").val(obj.Cid);
