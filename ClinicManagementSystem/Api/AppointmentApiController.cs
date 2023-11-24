@@ -55,8 +55,8 @@ namespace ClinicManagementSystem.Api
             var obj = c.FindById(id);
             VMAppointment list = mp.Map<VMAppointment>(obj);
 
-            rp.Code = 0;
-            rp.Message = list;
+            rp.Code =0;
+            rp.Message = obj;
             return Json(rp, JsonRequestBehavior.AllowGet);
         }
 

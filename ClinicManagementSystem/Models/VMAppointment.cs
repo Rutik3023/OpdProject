@@ -11,7 +11,7 @@ namespace ClinicManagementSystem.Models
         public int Id { get; set; }
         public int DrId { get; set; }
         public int Cid { get; set; }
-        public int Stastus { get; set; }
+        public string Stastus { get; set; }
    
         public DateTime Date { get; set; }
     

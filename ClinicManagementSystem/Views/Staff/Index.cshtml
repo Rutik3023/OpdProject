@@ -56,7 +56,7 @@
                                 $.each(data.Message, function (index, item) {
 
                                     var myDate = new Date(item.CreatedOn.match(/\d+/)[0] * 1);
-                                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='fa-solid fa-pen-to-square'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
                                 });
                             }
                         },
@@ -112,7 +112,7 @@
 
                     alert(data.Message);
                     Loaddata(0);
-                    Clear()
+                    Clear();
 
                     $("#StaffModal").hide();
 
@@ -150,7 +150,7 @@
                     }
                     console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button type='button' class='btn btn -sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
+                    $("#Staffload").append("<tr><td><div class='btn-group-sm'role='group'aria-label='Basic example'><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='fa-solid fa-pen-to-square'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Role + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td>" + item.Mobile + "</td><td>" + item.Photo + "</td><td>" + item.UserName + "</td><td>" + item.Password + "</td><td>" + myDate.toLocaleDateString() + "</td></tr>");
 
                 })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             }, 
