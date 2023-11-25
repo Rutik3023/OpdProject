@@ -6,20 +6,22 @@
 }
 
 <style>
-    /*.AllClinicData i{
-        font-size: 20px
-    }*/
+    .ClinicDiv i {
+        font-size: 20px;
+        color: #00acb1;
+        margin-right: 11px;
+    }
 </style>
 
 <script>
     var previous;
     var Next;
     var countn;
-    
+
     $(document).ready(function () {
 
-        Loaddata(0);
-       
+        Loaddata();
+
 
         $("#OpenModal").click(function () {
             $("#ClinicModal").show();
@@ -50,7 +52,7 @@
                 "CloseTime": $("#CloseTime").val(),
                 "OpenTime": $("#OpenTime").val(),
             };
-           // console.log(JSON.stringify(obj));
+            // console.log(JSON.stringify(obj));
             $.ajax({
                 "url": "/ClinicApi/Save",
                 "method": "post",
@@ -150,32 +152,45 @@
 
 
 
-    function Loaddata( pagno) {
+    function Loaddata() {
 
         $.ajax({
-
-            "url": "/ClinicApi/GetAllC?pagno="+ pagno,
+            "url": "/ClinicApi/GetAll",
             "method": "get",
             success: function (Data) {
-                 console.log(Data);
-                counts = Data.count;
-                
-                $("#clinicload").empty();
+                console.log(Data);
+
                 $.each(Data.Message, function (index, item) {
 
                     var myDate = new Date(item.Createdon.match(/\d+/)[0] * 1);
                     var open = new Date(item.OpenTime.match(/\d+/)[0] * 1);
                     var close = new Date(item.CloseTime.match(/\d+/)[0] * 1);
 
-                    previous = Data.pageno - 1;
-                    Next = Data.pageno + 1;
-                   
-                    if (previous == -1) {
-                        previous = 0;
-                    }
-                  
-                    var next = Data.pageno + 1;
                     $("#clinicload").append(" <tr><td><div class='btn-group-sm d-flex' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")'type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button> <button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div> </td ><td>" + item.Id + "</td><td>" + item.RegNo + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td></td><td>" + open.toLocaleTimeString() + "</td><td>" + close.toLocaleTimeString() + "</td><td>" + item.Photo + "</td><td>" + myDate.toLocaleDateString() + "</td> </tr >")
+
+
+                    //$("#clinicload").append(`<div class="ClinicDiv row m-0">
+                    //    <div class="col-4 border p-0">
+                    //        <img src="~/Images/ClinicImage.jpg" class="w-100 h-100" />
+                    //    </div>
+                    //    <div class="col-8 border py-3 px-4">
+                    //        <h1 class="mb-3">${item.Name}</h1>
+                    //        <div class="d-flex justify-content-between flex-wrap mb-3">
+                    //            <label><i class="fa-solid fa-certificate"></i><span class="fw-semibold">RegNo. : ${item.RegNo}</span></label>
+                    //            <label><i class="fa-solid fa-envelope"></i><span class="fw-semibold">Email : ${item.Email}</span></label>
+                    //        </div>
+                    //        <p class="my-4"><i class="fa-solid fa-location-dot"></i>${item.Address}</p>
+                    //        <div class="d-flex justify-content-between flex-wrap">
+                    //            <p><i class="fa-solid fa-phone"></i>${item.Mobile}</p>
+                    //            <p>
+                    //                <i class="fa-solid fa-clock"></i>
+                    //                <span>${open}</span>  -
+                    //                <span>${close} Time</span>
+                    //            </p>
+
+                    //        </div>
+                    //    </div>
+                    //</div>`)
 
                 });
 
@@ -282,7 +297,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
 
                                 </div>
                             </div>
@@ -318,73 +333,96 @@
         </div>
     </div>
     <hr />
-    <div class="AllClinicData overflow-auto mt-2 bg-secondary p-3" style="max-height:90vh;">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Id</th>
-                    <th>Reg.No</th>
-                    <th>Clinic Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone No</th>
-                    <th>Opening time</th>
-                    <th>Closeing Time</th>
-                    <th>Photo</th>
+    <div class="AllClinicData shadow-sm border rounded-3 overflow-auto mt-2 bg-white" style="max-height:90vh;">
+        @*<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Reg.No</th>
+                        <th>Clinic Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone No</th>
+                        <th>Opening time</th>
+                        <th>Closeing Time</th>
+                        <th>Photo</th>
 
-                    <th>CreatedOn</th>
-                </tr>
-            </thead>
-            <tbody id="clinicload">
-                @*<tr>
-                        <td>
-                            <div class="btn-group-sm" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-show m-0'></i></button>
-                                <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
-                                <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
-                            </div>
-                        </td>
-                        <td>Id</td>
-                        <td>Reg. No.</td>
-                        <td>Clinic Name</td>
-                        <td>Email</td>
-                        <td>Address</td>
-                        <td>Phone No</td>
-                        <td>Opening & Closeing Time</td>
-                        <td>Photo</td>
-                        <td>CreatedBy</td>
-                        <td>CreatedOn</td>
-                    </tr>*@
-            </tbody>
-        </table>
+                        <th>CreatedOn</th>
+                    </tr>
+                </thead>
+                <tbody id="clinicload">
+                    <tr>
+                            <td>
+                                <div class="btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-sm btn-outline-warning"><i class='bx bxs-show m-0'></i></button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"><i class='bx bxs-edit m-0'></i></button>
+                                    <button type="button" class="btn btn-sm btn-outline-danger"><i class='bx bx-trash'></i></button>
+                                </div>
+                            </td>
+                            <td>Id</td>
+                            <td>Reg. No.</td>
+                            <td>Clinic Name</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                            <td>Phone No</td>
+                            <td>Opening & Closeing Time</td>
+                            <td>Photo</td>
+                            <td>CreatedBy</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                </tbody>
+            </table>*@
+
+        @*<div class="ClinicDiv row m-0">
+            <div class="col-4 border p-0">
+                <img src="~/Images/ClinicImage.jpg" class="w-100 h-100" />
+            </div>
+            <div class="col-8 border py-3 px-4">
+                <h1 class="mb-3">Clinic Name</h1>
+                <div class="d-flex justify-content-between flex-wrap mb-3">
+                    <label><i class="fa-solid fa-certificate"></i><span class="fw-semibold">RegNo. :</span></label>
+                    <label><i class="fa-solid fa-envelope"></i><span class="fw-semibold">Email :</span></label>
+                </div>
+                <p class="my-4"><i class="fa-solid fa-location-dot"></i>The name of the road/thoroughfare of an address within a complex, as represented by text.</p>
+                <div class="d-flex justify-content-between flex-wrap">
+                    <p><i class="fa-solid fa-phone"></i>MobileNo</p>
+                    <p>
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Opening Time</span>  -
+                        <span>Closing Time</span>
+                    </p>
+
+                </div>
+            </div>
+        </div>*@
 
     </div>
-    <div class="row">
-        <div class="col-12 text-right">
-            @{      
-               
+    @*<div class="row">
+            <div class="col-12 text-right">
+                @{
 
 
 
 
 
-                <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
-                int totaln = (int)TempData.Peek("count");
-                for (int i = 0; i <= totaln/ 8; i++)
-                {
-                    int total = i + 1;
-                    <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+                    <a onclick="Loaddata(previous) " class="btn btn-danger">previous</a>
+                    int totaln = (int)TempData.Peek("count");
+                    for (int i = 0; i <= totaln/ 8; i++)
+                    {
+                        int total = i + 1;
+                        <a onclick="Loaddata( @i)" class="btn btn-danger">@total</a>
+
+                    }
+                    <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
 
                 }
-                <a onclick="Loaddata(Next)" class="btn btn-danger">Next</a>
-
-            }
 
 
-        </div>
+            </div>
 
 
 
-    </div>
+        </div>*@
 </div>
