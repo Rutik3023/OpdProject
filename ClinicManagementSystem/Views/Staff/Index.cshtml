@@ -87,6 +87,47 @@
 
                 gender = "F";
             }
+
+            if ($("#Role").val().trim() == "") {
+                $("[data-valmsg-for='Role']").text("Role is required");
+                return;
+            }
+
+            if ($("#Name").val().trim() == "") {
+                $("[data-valmsg-for='Name']").text("Name is required");
+                return;
+            }
+
+
+            if ($("#Mobile").val().trim() == "") {
+                $("[data-valmsg-for='Mobile']").text("Mobile is required");
+                return;
+            }
+            
+            if ($("#Address").val().trim() == "") {
+                $("[data-valmsg-for='Address']").text("Address is required");
+                return;
+            }
+
+
+            if ($("#UserName").val().trim() == "") {
+                $("[data-valmsg-for='UserName']").text("UserName is required");
+                return;
+            }
+
+
+            if ($("#Email").val().trim() == "") {
+                $("[data-valmsg-for='Email']").text("Email is required");
+                return;
+            }
+
+            if ($("#Password").val().trim() == "") {
+                $("[data-valmsg-for='Password']").text("Password is required");
+                return;
+            }
+
+
+
             // save to db
 
             var obj = {
@@ -96,7 +137,6 @@
                 "Mobile": $("#Mobile").val(),
                 "Address": $("#Address").val(),
                 "UserName": $("#UserName").val(),
-                "Address": $("#Address").val(),
                 "Email": $("#Email").val(),
                 "Password": $("#Password").val()
                

@@ -21,6 +21,41 @@
         $("#Save").click(function () {
 
             //validation....
+
+            if ($("#PId").val().trim() == "") {
+                $("[data-valmsg-for='PId']").text("PId is required");
+                return;
+            }
+
+            if ($("#Height").val().trim() == "") {
+                $("[data-valmsg-for='Height']").text("Height is required");
+                return;
+            }
+
+            if ($("#Wight").val().trim() == "") {
+                $("[data-valmsg-for='Wight']").text("Wight is required");
+                return;
+            }
+
+
+
+            if ($("#BP").val().trim() == "") {
+                $("[data-valmsg-for='BP']").text("BP is required");
+                return;
+            }
+
+
+            if ($("#CasepaperFee").val().trim() == "") {
+                $("[data-valmsg-for='CasepaperFee']").text("CasepaperFee is required");
+                return;
+            }
+
+            if ($("#HealthIssue").val().trim() == "") {
+                $("[data-valmsg-for='HealthIssue']").text("HealthIssue is required");
+                return;
+            }
+
+
          
             // save to db
            
