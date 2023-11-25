@@ -16,8 +16,44 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#MedicineModal").hide();
         });
+        $("#Save").click(function () {
 
-        
+            var obj = {
+
+            "Id": $("#Id").val(),
+             "MContent":$("#MContent").val(),
+              "Name": $("#Name").val(),
+             "Company":$("#Company").val()
+
+
+
+            }
+
+
+
+            $.ajax({
+                "url": "/MedicineApi/Save",
+                "method": "post",
+                "contentType": "application/json",
+                "data": JSON.stringify(obj),
+
+                success: function (data) {
+
+                    alert(data.Message);
+                    Loaddata(0);
+                
+
+
+                    $("#MedicineModal").hide();
+
+                },
+                error: function (err) { console.log(err); }
+            });
+
+
+
+
+        });
     });
 
 
@@ -41,7 +77,8 @@
                     }
                     console.log(Data.Message);
                     var next = Data.pageno + 1;
-                    $("#Medicineload").append("<tr><td><div class='btn - group - sm' role='group' aria-label='Basic example'><button type='button' class='btn btn - sm btn - outline - warning'><i class='bx bxs-show m-0'></i></button><button type='button' class='btn btn - sm btn - outline - primary'><i class='bx bxs-edit m-0'></i></button><button type='button' class='btn btn - sm btn - outline - danger'><i class='fa-solid fa-trash'></i></button></div></td><td>Id</td><td>Medicine Name</td><td>Content</td><td>Company</td></tr>");
+                    console.log(Data.Message);
+                    $("#Medicineload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='fa-solid fa-pen-to-square'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.MContent + "</td><td>" + item.Company +"</td></tr>");
 
 
 
@@ -60,6 +97,54 @@
 
     }
 
+
+    function Edit(id) {
+        $.ajax({
+            "url": "/MedicineApi/FindByid?id=" + id,
+            "method": "get",
+            success: function (rep) {
+
+                if (rep.Code == 0) {
+
+                    var obj = rep.Message;
+
+                    console.log(obj);
+
+                    $("#Id").val(obj.Id);
+                    $("#MContent").val(obj.MContent);
+                    $("#Name").val(obj.Name);
+                    $("#Company").val(obj.Company);
+               
+                   
+
+                    $("#MedicineModal").show();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+      
+
+    }
+
+    function Delete(id) {
+
+        $.ajax({
+            "url": "/MedicineApi/Delete?id=" + id,
+            "method": "get",
+            success: function (rep) {
+
+                if (rep.Code == 0) {
+                    alert(rep.Message);
+                    Loaddata(0);
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
 
 </script>
 
@@ -83,6 +168,7 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-12">
+                                        @Html.HiddenFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
