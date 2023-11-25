@@ -17,7 +17,6 @@ namespace ClinicManagementSystem
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblRole()
         {
-            this.tblAdmins = new HashSet<tblAdmin>();
             this.tblDoctors = new HashSet<tblDoctor>();
             this.tblStaffs = new HashSet<tblStaff>();
         }
@@ -25,8 +24,6 @@ namespace ClinicManagementSystem
         public int Id { get; set; }
         public string Role { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblAdmin> tblAdmins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoctor> tblDoctors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

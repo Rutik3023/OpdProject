@@ -76,7 +76,19 @@ namespace ClinicManagementSystem.Servises
 
         public dynamic GetAllPage(int pagno)
         {
-            dynamic obj = db.tblStaffs.OrderByDescending(o => o.Id).Skip(8 * pagno).Take(8).ToList();
+            dynamic obj = db.tblStaffs.Select(s => new {
+                s.Id,
+                s.Name,
+                s.Address,
+                s.Mobile,
+                s.Password,
+                s.UserName,
+                s.CreatedBy,
+                s.CreatedOn,
+                Role=s.tblRole.Role,
+                s.Email
+
+            }).OrderByDescending(o => o.Id).Skip(8 * pagno).Take(8).ToList();
             return obj;
         }
 

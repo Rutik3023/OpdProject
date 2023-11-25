@@ -70,7 +70,16 @@
             }
 
             if ($("#Mobile").val().trim() == "") {
-                $("[data-valmsg-for='Mobile']").text("Mobile is required");
+                $("[data-valmsg-for='Mobile']").text("Mobileno is required");
+                return;
+            }
+
+            if ($("#Mobile").val().trim().length>10) {
+                $("[data-valmsg-for='Mobile']").text("Mobileno is invalid");
+                return;
+            }
+            if ($("#Mobile").val().trim().length < 10) {
+                $("[data-valmsg-for='Mobile']").text("Mobileno is invalid");
                 return;
             }
             //var mobileNumber = $("#mobile").val();
@@ -399,7 +408,7 @@
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control",@type= "number" } })
                                                 @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
                                             </div>
                                         </div>

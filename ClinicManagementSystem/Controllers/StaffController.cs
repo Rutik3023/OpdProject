@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicManagementSystem.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ namespace ClinicManagementSystem.Controllers
         // GET: Staff
         public ActionResult Index()
         {
-
+            ViewBag.role = CommonRepo.Role();
             TempData["count"] = db.tblStaffs.Count();
 
 

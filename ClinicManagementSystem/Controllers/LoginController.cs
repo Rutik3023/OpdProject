@@ -23,7 +23,7 @@ namespace ClinicManagementSystem.Controllers
             var Doctor = Db.tblDoctors.Select(s => new { s.Id, s.Name, s.Password, s.UserName, s.Role }).Where(w => w.UserName == obj.LoginName && w.Password == obj.Password).FirstOrDefault();
             if (Doctor != null)
             {
-                FormsAuthentication.SetAuthCookie(Doctor.Name, false);
+                FormsAuthentication.SetAuthCookie(Doctor.Id.ToString(), false);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -33,7 +33,7 @@ namespace ClinicManagementSystem.Controllers
             var Staff = Db.tblStaffs.Select(s => new { s.Id, s.Name, s.Password, s.UserName, s.Role }).Where(w => w.UserName == obj.LoginName && w.Password == obj.Password).FirstOrDefault();
             if (Staff != null)
             {
-                FormsAuthentication.SetAuthCookie(Staff.Name, false);
+                FormsAuthentication.SetAuthCookie(Staff.Id.ToString(), false);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -46,7 +46,7 @@ namespace ClinicManagementSystem.Controllers
 
             if (Admin != null)
             {
-                FormsAuthentication.SetAuthCookie(Admin.Name, false);
+                FormsAuthentication.SetAuthCookie(Admin.Id.ToString(), false);
                 return RedirectToAction("Index", "Home");
             }
             else

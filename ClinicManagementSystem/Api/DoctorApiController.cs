@@ -68,6 +68,7 @@ namespace ClinicManagementSystem.Api
         {
             Reports rp = new Reports();
             obj.Photo = CommonRepo.Photos;
+            obj.CreatedBy = Convert.ToInt32( User.Identity.Name);
             CommonRepo.Photos = null;
 
 

@@ -108,7 +108,7 @@ namespace ClinicManagementSystem.Servises
                 list.Password = obj.Password;
                 list.Photo = obj.Photo;
                 list.CreatedOn = DateTime.Now;
-                list.CreatedBy = 1;
+                    list.CreatedBy = obj.CreatedBy;
                
                     db.tblDoctors.Add(list);
                     db.SaveChanges();

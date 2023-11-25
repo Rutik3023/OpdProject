@@ -28,9 +28,8 @@ namespace ClinicManagementSystem
         public string Username { get; set; }
         public string Password { get; set; }
         public Nullable<System.DateTime> Careatedon { get; set; }
-        public Nullable<int> Role { get; set; }
+        public string Role { get; set; }
     
-        public virtual tblRole tblRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblClinic> tblClinics { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
