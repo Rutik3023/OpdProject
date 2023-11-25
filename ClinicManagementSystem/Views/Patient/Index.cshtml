@@ -32,6 +32,43 @@
                 gender = "F";
 
             }
+
+            if ($("#Name").val().trim() == "")
+            {
+                $("[data-valmsg-for='Name']").text("Name is required");
+                return;
+            }
+
+            if ($("#Address").val().trim() == "")
+            {
+                $("[data-valmsg-for='Address']").text("Address is required");
+                return;
+            }
+
+            if ($("#MobileNo").val().trim() == "")
+            {
+                $("[data-valmsg-for='MobileNo']").text("MobileNo is required");
+                return;
+            }
+
+            if ($("#Emailid").val().trim() == "")
+            {
+                $("[data-valmsg-for='Emailid']").text("Emailid is required");
+                return;
+            }
+
+            if ($("#Adharno").val().trim() == "")
+            {
+                $("[data-valmsg-for='Adharno']").text("Adharno is required");
+                return;
+            }
+
+            if ($("#BloodGroupId").val().trim() == "")
+            {
+                $("[data-valmsg-for='BloodGroupId']").text("BloodGroupId is required");
+                return;
+            }
+
            
             // save to db
 
