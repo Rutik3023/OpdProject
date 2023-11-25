@@ -41,8 +41,29 @@
         });
 
         $("#Addmedicine").click(function () {
-            if (true)
+            if ($("#QTY").val()>0)
             {
+                if ($("#MDose").prop("checked")) {
+
+                    $("#MDose").val(true);
+                }
+                else {
+                    $("#MDose").val(false);
+                }
+                if ($("#AfDose").prop("checked")) {
+
+                    $("#AfDose").val(true);
+                }
+                else {
+                    $("#AfDose").val(false);
+                }
+                if ($("#NDose").prop("checked")) {
+
+                    $("#NDose").val(true);
+                }
+                else {
+                    $("#NDose").val(false);
+                }
                 var obj = {
 
                     "Srno": cart.length + 1,
@@ -54,12 +75,68 @@
                     "NDose": $("#NDose").val(),
 
                 }
-                
+
+
+                cart.push(obj);
+
+                loadcart();
+                clarecartbax();
+                console.log(cart);
             }
-            cart.push(obj);
-            loadcart();
-            console.log(cart);
+           
         });
+
+
+        $("#save").click(function () {
+          
+            if (cart.length==0) {
+
+                alert("Shop Cart is Empty");
+                return;
+            }
+
+            var obj = {
+
+                "AId": $("#AId").val(),
+                "Symtams": $("#Symtams").val(),
+                "Disiese": $("#Disiese").val(),
+                "Narration": $("#Narration").val(),
+                "ShopCart": cart,
+                 
+
+
+            }
+            $.ajax({
+                "url": "/PrescriptionApi/Save",
+                "method": "post",
+                "contentType": "application/json",
+                "data": JSON.stringify(obj),
+
+                success: function (data) {
+
+                    alert(data.Message);
+                   
+
+
+                    $("#DoctorModal").hide();
+
+                },
+                error: function (err) { console.log(err); }
+            });
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+
 
 
     });
@@ -96,6 +173,13 @@
 
     }
 
+    function clarecartbax(){
+
+        $("#MDose").val("");
+        $("#AfDose").val(false);
+        $("#NDose").val(false);
+        $("#QTY").val(null);
+    }
     
 </script>
 
@@ -137,7 +221,7 @@
                                             @Html.LabelFor(model => model.CId, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="col-md-12">
                                                 @Html.EditorFor(model => model.CId, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.AId, "", new { @class = "text-danger" })
+                                                @Html.ValidationMessageFor(model => model.CId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +299,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <div class="checkbox d-flex align-items-center">
-                                                        @Html.EditorFor(model => model.MDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.CheckBox("MDose",false,new {@value="true" })
                                                         @Html.LabelFor(model => model.MDose, htmlAttributes: new { @class = "control-label col-md-2" })
                                                         @Html.ValidationMessageFor(model => model.MDose, "", new { @class = "text-danger" })
                                                     </div>
@@ -225,7 +309,7 @@
                                             <div class="form-group mx-2">
                                                 <div class="col-md-12">
                                                     <div class="checkbox d-flex align-items-center">
-                                                        @Html.EditorFor(model => model.AfDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.CheckBox("AfDose", false, new { @value = "true" })
                                                         @Html.LabelFor(model => model.AfDose, htmlAttributes: new { @class = "control-label col-md-2" })
                                                         @Html.ValidationMessageFor(model => model.AfDose, "", new { @class = "text-danger" })
                                                     </div>
@@ -235,7 +319,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <div class="checkbox d-flex align-items-center">
-                                                        @Html.EditorFor(model => model.NDose, new { htmlAttributes = new { @class = "mb-0 me-2" } })
+                                                        @Html.CheckBox("NDose", false, new { @value = "true" })
                                                         @Html.LabelFor(model => model.NDose, htmlAttributes: new { @class = "control-label col-md-2" })
                                                         @Html.ValidationMessageFor(model => model.NDose, "", new { @class = "text-danger" })
                                                     </div>

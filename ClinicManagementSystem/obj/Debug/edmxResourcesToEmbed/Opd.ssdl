@@ -412,6 +412,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblStaff_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HospitalDBModelStoreContainer">
     <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -497,6 +509,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_tblStaff_tblDoctor" Association="Self.FK_tblStaff_tblDoctor">
       <End Role="tblDoctor" EntitySet="tblDoctor" />
+      <End Role="tblStaff" EntitySet="tblStaff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblRole" Association="Self.FK_tblStaff_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
       <End Role="tblStaff" EntitySet="tblStaff" />
     </AssociationSet>
   </EntityContainer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HospitalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HospitalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Fee">
           <Key>
             <PropertyRef Name="Id" />
@@ -417,6 +417,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblStaff_tblRole">
+          <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+          <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HospitalDBModelStoreContainer">
           <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -504,9 +516,12 @@
             <End Role="tblDoctor" EntitySet="tblDoctor" />
             <End Role="tblStaff" EntitySet="tblStaff" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_tblRole" Association="Self.FK_tblStaff_tblRole">
+            <End Role="tblRole" EntitySet="tblRole" />
+            <End Role="tblStaff" EntitySet="tblStaff" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HospitalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -732,6 +747,7 @@
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblAdmins" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblRole" ToRole="tblAdmin" />
           <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblRole" FromRole="tblRole" ToRole="tblDoctor" />
+          <NavigationProperty Name="tblStaffs" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblRole" ToRole="tblStaff" />
         </EntityType>
         <EntityType Name="tblStaff">
           <Key>
@@ -751,6 +767,7 @@
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblDoctor" Relationship="Self.FK_tblStaff_tblDoctor" FromRole="tblStaff" ToRole="tblDoctor" />
           <NavigationProperty Name="tblPatients" Relationship="Self.FK_tblPatient_tblStaff" FromRole="tblStaff" ToRole="tblPatient" />
+          <NavigationProperty Name="tblRole" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblStaff" ToRole="tblRole" />
         </EntityType>
         <Association Name="FK_Fee_tblPatient">
           <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
@@ -1043,7 +1060,23 @@
             <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
             <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblStaff_tblRole" Association="HospitalDBModel.FK_tblStaff_tblRole">
+            <End Role="tblRole" EntitySet="tblRoles" />
+            <End Role="tblStaff" EntitySet="tblStaffs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_tblStaff_tblRole">
+          <End Type="HospitalDBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+          <End Type="HospitalDBModel.tblStaff" Role="tblStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStaff">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

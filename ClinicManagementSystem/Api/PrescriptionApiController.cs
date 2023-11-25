@@ -44,5 +44,13 @@ namespace ClinicManagementSystem.Api
         }
 
 
+        public JsonResult Save(PrescriptionMaster obj)
+        {
+            Reports rp = new Reports();
+            var d=  c.Save(obj);
+            rp.Code = 0;
+            rp.Message = d;
+            return Json(rp, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -222,6 +222,7 @@
     <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblAdmins" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblRole" ToRole="tblAdmin" />
     <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblRole" FromRole="tblRole" ToRole="tblDoctor" />
+    <NavigationProperty Name="tblStaffs" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblRole" ToRole="tblStaff" />
   </EntityType>
   <EntityType Name="tblStaff">
     <Key>
@@ -241,6 +242,7 @@
     <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblDoctor" Relationship="Self.FK_tblStaff_tblDoctor" FromRole="tblStaff" ToRole="tblDoctor" />
     <NavigationProperty Name="tblPatients" Relationship="Self.FK_tblPatient_tblStaff" FromRole="tblStaff" ToRole="tblPatient" />
+    <NavigationProperty Name="tblRole" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblStaff" ToRole="tblRole" />
   </EntityType>
   <Association Name="FK_Fee_tblPatient">
     <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
@@ -533,5 +535,21 @@
       <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
       <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
     </AssociationSet>
+    <AssociationSet Name="FK_tblStaff_tblRole" Association="HospitalDBModel.FK_tblStaff_tblRole">
+      <End Role="tblRole" EntitySet="tblRoles" />
+      <End Role="tblStaff" EntitySet="tblStaffs" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_tblStaff_tblRole">
+    <End Type="HospitalDBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+    <End Type="HospitalDBModel.tblStaff" Role="tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

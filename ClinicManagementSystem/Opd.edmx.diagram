@@ -40,6 +40,7 @@
         <AssociationConnector Association="HospitalDBModel.FK_tblparentmedicineDetails_tblmedicine" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalDBModel.FK_tblPatient_tblStaff" ManuallyRouted="false" />
         <AssociationConnector Association="HospitalDBModel.FK_tblPatientMedicineDetails_tblPrescription" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDBModel.FK_tblStaff_tblRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -36,5 +36,6 @@ namespace ClinicManagementSystem
         public virtual tblDoctor tblDoctor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPatient> tblPatients { get; set; }
+        public virtual tblRole tblRole { get; set; }
     }
 }

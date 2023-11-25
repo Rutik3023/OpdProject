@@ -168,7 +168,9 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\boxicons.min.css" />
     <Content Include="CSS\FontAwesome.min.css" />
+    <Content Include="CSS\icon.css" />
     <Content Include="CSS\Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\login-02.png" />
@@ -194,11 +196,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AppointmentApiController.cs" />
+    <Compile Include="Api\CasePaperApiController.cs" />
     <Compile Include="Api\ClinicApiController.cs" />
     <Compile Include="Api\CommonRepo.cs" />
     <Compile Include="Api\DoctorApiController.cs" />
+    <Compile Include="Api\MedicineApiController.cs" />
     <Compile Include="Api\Pageset.cs" />
     <Compile Include="Api\PatientApiController.cs" />
+    <Compile Include="Api\PrescriptionApiController.cs" />
     <Compile Include="Api\Reports.cs" />
     <Compile Include="Api\StaffApiController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -209,7 +215,9 @@
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MedicinesController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Fee.cs">
       <DependentUpon>Opd.tt</DependentUpon>
@@ -221,14 +229,20 @@
     <Compile Include="Iservises\ICasePaper.cs" />
     <Compile Include="Iservises\IClinic.cs" />
     <Compile Include="Iservises\IDoctor.cs" />
+    <Compile Include="Iservises\IMedicine.cs" />
     <Compile Include="Iservises\IPatient.cs" />
+    <Compile Include="Iservises\Iprescripstion.cs" />
     <Compile Include="Iservises\IStaff.cs" />
+    <Compile Include="Models\item.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PrescriptionMaster.cs" />
     <Compile Include="Models\VMAppointment.cs" />
     <Compile Include="Models\VMCasePaper.cs" />
     <Compile Include="Models\VMClinic.cs" />
     <Compile Include="Models\VMDoctor.cs" />
+    <Compile Include="Models\VMMedicine.cs" />
     <Compile Include="Models\VMPatient.cs" />
+    <Compile Include="Models\VMPrescription.cs" />
     <Compile Include="Models\VMStaff.cs" />
     <Compile Include="Opd.Context.cs">
       <AutoGen>True</AutoGen>
@@ -250,7 +264,9 @@
     <Compile Include="Servises\CasePaperRepo.cs" />
     <Compile Include="Servises\ClinicRepo.cs" />
     <Compile Include="Servises\DoctorRepo.cs" />
+    <Compile Include="Servises\MedicineRepo.cs" />
     <Compile Include="Servises\PatientRepo.cs" />
+    <Compile Include="Servises\PrescripsionRepo.cs" />
     <Compile Include="Servises\StaffRepo.cs" />
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Opd.tt</DependentUpon>
@@ -324,6 +340,9 @@
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\CasePaper\Index.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Medicines\Index.cshtml" />
+    <Content Include="Views\Prescription\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -334,9 +353,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DoctorPhoto\" />
-    <Folder Include="Views\Appointment\" />
     <Folder Include="Views\DoctorApi\" />
+    <Folder Include="Views\MedicineApi\" />
     <Folder Include="Views\PatientApi\" />
+    <Folder Include="Views\PrescriptionApi\" />
     <Folder Include="Views\StaffApi\" />
   </ItemGroup>
   <ItemGroup>

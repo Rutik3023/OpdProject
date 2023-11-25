@@ -19,6 +19,7 @@ namespace ClinicManagementSystem
         {
             this.tblAdmins = new HashSet<tblAdmin>();
             this.tblDoctors = new HashSet<tblDoctor>();
+            this.tblStaffs = new HashSet<tblStaff>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace ClinicManagementSystem
         public virtual ICollection<tblAdmin> tblAdmins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblDoctor> tblDoctors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblStaff> tblStaffs { get; set; }
     }
 }
