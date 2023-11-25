@@ -13,9 +13,7 @@
             $("#MedicineModal").show();
         });
 
-        $("[data-bs-dismiss='modal']").click(function ()
-        {
-            
+        $("[data-bs-dismiss='modal']").click(function () {
             $("#MedicineModal").hide();
         });
         $("#Save").click(function () {
@@ -43,7 +41,7 @@
 
                     alert(data.Message);
                     Loaddata(0);
-                    Clear();
+                
 
 
                     $("#MedicineModal").hide();
@@ -56,6 +54,35 @@
 
 
         });
+
+        $("#txtSearch").keyup(function () {
+            $.ajax(
+                {
+                    "url": "/MedicineApi/GetAll?key=" + $("#txtSearch").val(),
+                    "method": "get",
+                    success: function (data) {
+
+                        if (data.Code == 0) {
+                            $("#Medicineload").empty();
+                            $.each(data.Message, function (index, item) {
+
+                                $("#Medicineload").append("<tr><td><div class='btn-group-sm ' role='group' aria-label='Basic example'><button onclick='Edit(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-primary'><i class='fa-solid fa-pen-to-square'></i></button><button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Name + "</td><td>" + item.MContent + "</td><td>" + item.Company + "</td></tr>");
+                               
+                            });
+                        }
+                    },
+                    error: function (message) {
+                        console.log(message);
+                    }
+                }
+            );
+        });
+
+
+
+
+
+
     });
 
 
@@ -148,15 +175,6 @@
         });
     }
 
-
-    function Clear()
-    {
-        $("#Id").val("");
-        $("#MContent").val("");
-        $("#Name").val("");
-        $("#Company").val("");
-
-    }
 </script>
 
 
@@ -233,7 +251,7 @@
     <div class="row">
         <div class="col-9">
             <div class="input-group">
-                <span class="input-group-text"><i class='bx bx-search fs-5'></i></span>
+                <span  class="input-group-text"><i class='bx bx-search fs-5'></i></span>
                 <input type="text" id="txtSearch" class="form-control" placeholder="Search medicine by  name and email....">
             </div>
         </div>

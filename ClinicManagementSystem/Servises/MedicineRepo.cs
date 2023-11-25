@@ -35,7 +35,7 @@ namespace ClinicManagementSystem.Servises
                 }
                 else
                 {
-                    var List = db.tblMedicines.Find(obj);
+                    var List = db.tblMedicines.Find(obj.Id);
 
                     List.Name = obj.Name;
                     List.MContent = obj.MContent;
