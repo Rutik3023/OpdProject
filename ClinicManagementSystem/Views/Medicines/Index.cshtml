@@ -16,9 +16,28 @@
         $("[data-bs-dismiss='modal']").click(function () {
             $("#MedicineModal").hide();
         });
-        $("#Save").click(function () {
+        $("#Save").click(function ()
+        {
+            if ($("#MContent").val().trim() == "")
+            {
+                $("[data-valmsg-for='MContent']").text("MContent is required");
+                return;
+            }
 
-            var obj = {
+            if ($("#Name").val().trim() == "")
+            {
+                $("[data-valmsg-for='Name']").text("Name is required");
+                return;
+            }
+
+            if ($("#Company").val().trim() == "")
+            {
+                $("[data-valmsg-for='Company']").text("Company is required");
+                return;
+            }
+
+            var obj =
+            {
 
             "Id": $("#Id").val(),
              "MContent":$("#MContent").val(),
@@ -41,9 +60,9 @@
 
                     alert(data.Message);
                     Loaddata(0);
-                
 
-
+                    Clear();
+                    
                     $("#MedicineModal").hide();
 
                 },
@@ -174,6 +193,16 @@
             }
         });
     }
+
+
+    function Clear()
+    {
+        $("#Id").val("");
+        $("#MContent").val("");
+        $("#Name").val("");
+        $("#Company").val("");
+    }
+
 
 </script>
 
