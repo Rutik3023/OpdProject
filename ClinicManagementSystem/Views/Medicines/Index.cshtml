@@ -18,6 +18,26 @@
         });
         $("#Save").click(function () {
 
+            //Validation
+
+
+            if ($("#MContent").val().trim() == "") {
+                $("[data-valmsg-for='MContent']").text("Content is required");
+                return;
+            }
+
+            if ($("#Name").val().trim() == "") {
+                $("[data-valmsg-for='Name']").text("Name is required");
+                return;
+            }
+
+            if ($("#Company").val().trim() == "") {
+                $("[data-valmsg-for='Company']").text("Company is required");
+                return;
+            }
+
+
+
             var obj = {
 
             "Id": $("#Id").val(),
