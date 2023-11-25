@@ -105,7 +105,7 @@
                     if (previous == -1) {
                         previous = 0;
                     }
-                    console.log(Data.Message);
+                    //console.log(Data.Message);
                     var next = Data.pageno + 1;
                     $("#Appoyment").append("<tr><td><div class='btn - group - sm' role='group' aria-label='Basic example'><button type='button' class='btn btn - sm btn - outline - warning'><i class='bx bxs-edit m-0'></i>Select</button> <button type='button'onclick='Edit(" + item.Id + ")'class='btn btn - sm btn - outline - primary'><i class='fa-solid fa-pen-to-square'></i></button><button type='button'onclick='Delete(" + item.Id + ")' class='btn btn - sm btn - outline - danger'><i class='fa-solid fa-trash'></i></button></div></td><td>" + item.Id + "</td><td>" + item.Cid + "</td><td>" + myDate.toLocaleDateString() + "</td><td>" + item.Stastus + "</td></tr>")
 
@@ -127,33 +127,61 @@
     }
 
     function Edit(id) {
+        //$.ajax({
+        //    "url": "/AppointmentApi/FindByid?id=" + id,
+        //    "method": "get",
+        //    success: function (Data) {
+        //        $("#AppointmentModal").show();
+        //        if (Data.Code==0) {
+
+        //            var obj = Data.Message;
+        //            console.log(Data.Message);
+        //            var myDate = new Date(obj.Date.match(/\d+/)[0] * 1);
+        //            $("#Id").val(obj.Id);
+        //            $("#Cid").val(obj.Cid);
+        //           /* $("#Date").val(myDate.toLocaleDateString());*/
+        //            $("#Stastus").val(obj.Stastus);
+        //            $("#DrId").val(obj.DrId);
+
+
+        //            $("#AppointmentModal").show();
+        //        }
+        //    },
+        //    error: function (err) {
+        //        console.log(err);
+        //    }
+        //});
+
         $.ajax({
             "url": "/AppointmentApi/FindByid?id=" + id,
             "method": "get",
-            success: function (Data) {
-                debugger;
-                if (rep.Code == 0) {
-                    
+            success: function (rep) {
+
+                
+
+                    var obj = rep.Message;
+
+                    console.log(obj);
                     var obj = Data.Message;
+                    console.log(Data.Message);
                     var myDate = new Date(obj.Date.match(/\d+/)[0] * 1);
                     $("#Id").val(obj.Id);
                     $("#Cid").val(obj.Cid);
-                    $("#Date").val(myDate.toLocaleDateString());
+                    /* $("#Date").val(myDate.toLocaleDateString());*/
                     $("#Stastus").val(obj.Stastus);
                     $("#DrId").val(obj.DrId);
 
 
                     $("#AppointmentModal").show();
-                }
+
+               
             },
             error: function (err) {
                 console.log(err);
             }
+
         });
-
-
     }
-
     function Delete(id) {
         if (confirm("Are you sure?")) {
 
