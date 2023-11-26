@@ -9,6 +9,19 @@
 <script>
     var cart=[];
     $(document).ready(function () {
+
+        $("#PrintSlip").click(function () {
+            $.ajax({
+                url: '/Print/PrintData',
+                method: 'GET',
+                success: function (data) {
+                    window.open("/Print/PrintData", data, "popup");
+                },
+                error: function (error) {
+                }
+            });
+        });
+
         $("#OpenModal").click(function () {
             $("#PrescriptionModal").show();
         });
@@ -127,18 +140,7 @@
 
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
+        
     });
 
     function loadaid (id) {
@@ -408,7 +410,7 @@
                     <td>
                         <div class="btn-group-sm" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-sm btn-outline-warning" id="OpenModal"><i class="fa-solid fa-hand-pointer"></i> Select</button>
-                            <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-print"></i> Print</button>
+                            <button type="button" class="btn btn-sm btn-outline-primary" id="PrintSlip"><i class="fa-solid fa-print"></i> Print</button>
                             <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </td>
