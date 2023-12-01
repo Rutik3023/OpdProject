@@ -1,9 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\ClinicManagementSystem",
-    "\\ClinicManagementSystem\\Api"
+    ""
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Api\\ClinicApiController.cs",
   "PreviewInSolutionExplorer": false
 }
