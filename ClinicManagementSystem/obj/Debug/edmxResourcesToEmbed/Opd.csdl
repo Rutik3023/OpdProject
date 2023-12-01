@@ -33,8 +33,7 @@
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Careatedon" Type="DateTime" Precision="3" />
-    <Property Name="Role" Type="Int32" />
-    <NavigationProperty Name="tblRole" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblAdmin" ToRole="tblRole" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblClinics" Relationship="Self.FK_tblClinic_tblAdmin" FromRole="tblAdmin" ToRole="tblClinic" />
     <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblAdmin" FromRole="tblAdmin" ToRole="tblDoctor" />
   </EntityType>
@@ -220,9 +219,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tblAdmins" Relationship="Self.FK_tblAdmin_tblRole" FromRole="tblRole" ToRole="tblAdmin" />
     <NavigationProperty Name="tblDoctors" Relationship="Self.FK_tblDoctor_tblRole" FromRole="tblRole" ToRole="tblDoctor" />
-    <NavigationProperty Name="tblStaffs" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblRole" ToRole="tblStaff" />
+    <NavigationProperty Name="tblStaffs" Relationship="Self.FK_tblStaff_tblRole" FromRole="tblRole" ToRole="tblStaff" />
   </EntityType>
   <EntityType Name="tblStaff">
     <Key>
@@ -242,7 +240,7 @@
     <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tblDoctor" Relationship="Self.FK_tblStaff_tblDoctor" FromRole="tblStaff" ToRole="tblDoctor" />
     <NavigationProperty Name="tblPatients" Relationship="Self.FK_tblPatient_tblStaff" FromRole="tblStaff" ToRole="tblPatient" />
-    <NavigationProperty Name="tblRole" Relationship="HospitalDBModel.FK_tblStaff_tblRole" FromRole="tblStaff" ToRole="tblRole" />
+    <NavigationProperty Name="tblRole" Relationship="Self.FK_tblStaff_tblRole" FromRole="tblStaff" ToRole="tblRole" />
   </EntityType>
   <Association Name="FK_Fee_tblPatient">
     <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="0..1" />
@@ -265,18 +263,6 @@
       </Principal>
       <Dependent Role="Fee">
         <PropertyRef Name="Prid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblAdmin_tblRole">
-    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
-    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="tblAdmin">
-        <PropertyRef Name="Role" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -448,6 +434,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblStaff_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblStaff" Type="Self.tblStaff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblStaff">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HospitalDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Fees" EntityType="Self.Fee" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -474,10 +472,6 @@
     <AssociationSet Name="FK_tblFee_tblPrescriptionMaster" Association="Self.FK_tblFee_tblPrescriptionMaster">
       <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
       <End Role="Fee" EntitySet="Fees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblAdmin_tblRole" Association="Self.FK_tblAdmin_tblRole">
-      <End Role="tblRole" EntitySet="tblRoles" />
-      <End Role="tblAdmin" EntitySet="tblAdmins" />
     </AssociationSet>
     <AssociationSet Name="FK_tblClinic_tblAdmin" Association="Self.FK_tblClinic_tblAdmin">
       <End Role="tblAdmin" EntitySet="tblAdmins" />
@@ -535,21 +529,9 @@
       <End Role="tblPrescriptionMaster" EntitySet="tblPrescriptionMasters" />
       <End Role="tblprescripationMedicineDetails" EntitySet="tblprescripationMedicineDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_tblStaff_tblRole" Association="HospitalDBModel.FK_tblStaff_tblRole">
+    <AssociationSet Name="FK_tblStaff_tblRole" Association="Self.FK_tblStaff_tblRole">
       <End Role="tblRole" EntitySet="tblRoles" />
       <End Role="tblStaff" EntitySet="tblStaffs" />
     </AssociationSet>
   </EntityContainer>
-  <Association Name="FK_tblStaff_tblRole">
-    <End Type="HospitalDBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
-    <End Type="HospitalDBModel.tblStaff" Role="tblStaff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="tblStaff">
-        <PropertyRef Name="Role" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

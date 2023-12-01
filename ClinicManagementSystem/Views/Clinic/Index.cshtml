@@ -169,28 +169,28 @@
                     $("#clinicload").append(" <tr><td><div class='btn-group-sm d-flex' role='group' aria-label='Basic example'><button type='button' class='btn btn-sm btn-outline-warning'><i class='bx bxs-show m-0'></i></button><button onclick='Edit(" + item.Id + ")'type='button' class='btn btn-sm btn-outline-primary'><i class='bx bxs-edit m-0'></i></button> <button onclick='Delete(" + item.Id + ")' type='button' class='btn btn-sm btn-outline-danger'><i class='bx bx-trash'></i></button></div> </td ><td>" + item.Id + "</td><td>" + item.RegNo + "</td><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Address + "</td><td></td><td>" + open.toLocaleTimeString() + "</td><td>" + close.toLocaleTimeString() + "</td><td>" + item.Photo + "</td><td>" + myDate.toLocaleDateString() + "</td> </tr >")
 
 
-                    //$("#clinicload").append(`<div class="ClinicDiv row m-0">
-                    //    <div class="col-4 border p-0">
-                    //        <img src="~/Images/ClinicImage.jpg" class="w-100 h-100" />
-                    //    </div>
-                    //    <div class="col-8 border py-3 px-4">
-                    //        <h1 class="mb-3">${item.Name}</h1>
-                    //        <div class="d-flex justify-content-between flex-wrap mb-3">
-                    //            <label><i class="fa-solid fa-certificate"></i><span class="fw-semibold">RegNo. : ${item.RegNo}</span></label>
-                    //            <label><i class="fa-solid fa-envelope"></i><span class="fw-semibold">Email : ${item.Email}</span></label>
-                    //        </div>
-                    //        <p class="my-4"><i class="fa-solid fa-location-dot"></i>${item.Address}</p>
-                    //        <div class="d-flex justify-content-between flex-wrap">
-                    //            <p><i class="fa-solid fa-phone"></i>${item.Mobile}</p>
-                    //            <p>
-                    //                <i class="fa-solid fa-clock"></i>
-                    //                <span>${open}</span>  -
-                    //                <span>${close} Time</span>
-                    //            </p>
+                    $("#clinicload").append(`<div class="ClinicDiv row m-0">
+                        <div class="col-4 border p-0">
+                            <img src="~/Images/ClinicImage.jpg" class="w-100 h-100" />
+                        </div>
+                        <div class="col-8 border py-3 px-4">
+                            <h1 class="mb-3">${item.Name}</h1>
+                            <div class="d-flex justify-content-between flex-wrap mb-3">
+                                <label><i class="fa-solid fa-certificate"></i><span class="fw-semibold">RegNo. : ${item.RegNo}</span></label>
+                                <label><i class="fa-solid fa-envelope"></i><span class="fw-semibold">Email : ${item.Email}</span></label>
+                            </div>
+                            <p class="my-4"><i class="fa-solid fa-location-dot"></i>${item.Address}</p>
+                            <div class="d-flex justify-content-between flex-wrap">
+                                <p><i class="fa-solid fa-phone"></i>${item.Mobile}</p>
+                                <p>
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span>${open}</span>  -
+                                    <span>${close} Time</span>
+                                </p>
 
-                    //        </div>
-                    //    </div>
-                    //</div>`)
+                            </div>
+                        </div>
+                    </div>`)
 
                 });
 
@@ -374,7 +374,7 @@
                 </tbody>
             </table>*@
 
-        @*<div class="ClinicDiv row m-0">
+        <div class="ClinicDiv row m-0">
             <div class="col-4 border p-0">
                 <img src="~/Images/ClinicImage.jpg" class="w-100 h-100" />
             </div>
@@ -395,7 +395,7 @@
 
                 </div>
             </div>
-        </div>*@
+        </div>
 
     </div>
     @*<div class="row">

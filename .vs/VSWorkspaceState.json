@@ -2,15 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\ClinicManagementSystem",
-    "\\ClinicManagementSystem\\Api",
-    "\\ClinicManagementSystem\\Models",
-    "\\ClinicManagementSystem\\Views",
-    "\\ClinicManagementSystem\\Views\\Appointment",
-    "\\ClinicManagementSystem\\Views\\CasePaper",
-    "\\ClinicManagementSystem\\Views\\Doctor",
-    "\\ClinicManagementSystem\\Views\\Patient",
-    "\\ClinicManagementSystem\\Views\\Prescription"
+    "\\ClinicManagementSystem\\Api"
   ],
-  "SelectedNode": "\\ClinicManagementSystem\\Models\\VMPrescription.cs",
+  "SelectedNode": "\\ClinicManagementSystem\\Api\\ClinicApiController.cs",
   "PreviewInSolutionExplorer": false
 }

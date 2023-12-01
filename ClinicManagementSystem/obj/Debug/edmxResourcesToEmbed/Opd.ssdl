@@ -31,7 +31,7 @@
     <Property Name="Username" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="Careatedon" Type="datetime" />
-    <Property Name="Role" Type="int" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tblAppointment">
     <Key>
@@ -217,18 +217,6 @@
       </Principal>
       <Dependent Role="Fee">
         <PropertyRef Name="Pid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblAdmin_tblRole">
-    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
-    <End Role="tblAdmin" Type="Self.tblAdmin" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="tblAdmin">
-        <PropertyRef Name="Role" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -446,10 +434,6 @@
     <AssociationSet Name="FK_Fee_tblPatient" Association="Self.FK_Fee_tblPatient">
       <End Role="tblPatient" EntitySet="tblPatient" />
       <End Role="Fee" EntitySet="Fee" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblAdmin_tblRole" Association="Self.FK_tblAdmin_tblRole">
-      <End Role="tblRole" EntitySet="tblRole" />
-      <End Role="tblAdmin" EntitySet="tblAdmin" />
     </AssociationSet>
     <AssociationSet Name="FK_tblAppointment_tblCasePaper" Association="Self.FK_tblAppointment_tblCasePaper">
       <End Role="tblCasePaper" EntitySet="tblCasePaper" />
